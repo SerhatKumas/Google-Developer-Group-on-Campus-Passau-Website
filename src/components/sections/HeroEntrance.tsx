@@ -165,18 +165,12 @@ export function HeroEntrance() {
                 y: entranceTextY,
                 opacity: entranceTextOpacity,
               }}
-              className="text-center lg:text-left space-y-2 sm:space-y-3"
+              className="text-center lg:text-left space-y-3 sm:space-y-4"
             >
-              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-neutral-100 dark:bg-neutral-800 text-xs font-semibold text-[#5F6368] dark:text-[#9AA0A6] border border-[#E8EAED] dark:border-[#2D2F34]">
-                <span className="w-2 h-2 rounded-full bg-[#34A853] animate-pulse" />
-                <MapPin className="w-3.5 h-3.5 text-[#EA4335]" />
-                <span>University of Passau &bull; Germany</span>
-              </div>
-
               {/* Huge Bold Title */}
-              <h1 className="font-extrabold text-3xl sm:text-5xl lg:text-6xl tracking-tight text-[#202124] dark:text-[#F1F3F4] font-display leading-[1.08]">
+              <h1 className="font-extrabold text-4xl sm:text-6xl lg:text-7xl tracking-tight text-[#202124] dark:text-[#F1F3F4] font-display leading-[1.06]">
                 Google Developer Group
-                <span className="block text-2xl sm:text-4xl lg:text-5xl font-medium text-[#5F6368] dark:text-[#9AA0A6] mt-1">
+                <span className="block text-3xl sm:text-5xl lg:text-6xl font-medium text-[#5F6368] dark:text-[#9AA0A6] mt-1 sm:mt-2">
                   on Campus{" "}
                   <span className="font-extrabold text-[#4285F4] dark:text-blue-400">
                     Passau
@@ -184,7 +178,7 @@ export function HeroEntrance() {
                 </span>
               </h1>
 
-              <p className="text-sm sm:text-base text-[#5F6368] dark:text-[#9AA0A6] max-w-lg mx-auto lg:mx-0">
+              <p className="text-base sm:text-lg text-[#5F6368] dark:text-[#9AA0A6] max-w-lg mx-auto lg:mx-0 font-normal">
                 The premier student engineering & interdisciplinary network bridging Computer Science, AI, and Technical Law.
               </p>
             </motion.div>
