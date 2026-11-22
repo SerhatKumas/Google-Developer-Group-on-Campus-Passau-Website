@@ -1,4 +1,4 @@
-import { HeroSection } from "@/components/sections/HeroSection";
+import { HeroEntrance } from "@/components/sections/HeroEntrance";
 import { StatsStrip } from "@/components/sections/StatsStrip";
 import { PillarsGrid } from "@/components/sections/PillarsGrid";
 import { FeaturedEventsSection } from "@/components/sections/FeaturedEventsSection";
@@ -15,8 +15,8 @@ export default async function HomePage() {
 
   return (
     <div className="flex flex-col w-full">
-      {/* 1. Hero Section with dynamic photo collage & brand styling */}
-      <HeroSection />
+      {/* 1. Hero Entrance with scroll-driven parting arrows & authentic brand reveal */}
+      <HeroEntrance />
 
       {/* 2. Community Impact Stats Strip */}
       <StatsStrip />
