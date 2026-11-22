@@ -30,7 +30,7 @@ export function Footer() {
                   {siteConfig.shortName}
                 </h3>
                 <p className="text-xs text-[#5F6368] dark:text-[#9AA0A6]">
-                  {siteConfig.university} &bull; Bavaria, Germany
+                  {t.footer.campusSub}
                 </p>
               </div>
             </div>
@@ -129,22 +129,12 @@ export function Footer() {
               {t.footer.initiativesHeader}
             </h4>
             <ul className="space-y-2 text-sm">
-              <li>
-                <span className="text-[#202124] dark:text-[#F1F3F4] font-medium">Peer Mentorship</span>
-                <p className="text-xs text-[#5F6368] dark:text-[#9AA0A6]">Master&apos;s to Bachelor&apos;s pairs</p>
-              </li>
-              <li>
-                <span className="text-[#202124] dark:text-[#F1F3F4] font-medium">Civic Hackathons</span>
-                <p className="text-xs text-[#5F6368] dark:text-[#9AA0A6]">Code for Passau 2026</p>
-              </li>
-              <li>
-                <span className="text-[#202124] dark:text-[#F1F3F4] font-medium">Tech-Law Synergy</span>
-                <p className="text-xs text-[#5F6368] dark:text-[#9AA0A6]">GDPR & AI Ethics Audits</p>
-              </li>
-              <li>
-                <span className="text-[#202124] dark:text-[#F1F3F4] font-medium">Google Tech Trips</span>
-                <p className="text-xs text-[#5F6368] dark:text-[#9AA0A6]">Google Munich GSEC Visits</p>
-              </li>
+              {t.footer.initiatives.map((item, idx) => (
+                <li key={idx}>
+                  <span className="text-[#202124] dark:text-[#F1F3F4] font-medium">{item.title}</span>
+                  <p className="text-xs text-[#5F6368] dark:text-[#9AA0A6]">{item.subtitle}</p>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -181,7 +171,7 @@ export function Footer() {
         <div className="mt-12 pt-8 border-t border-[#E8EAED] dark:border-[#2D2F34] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
           <p className="flex items-center gap-1 text-center sm:text-left">
             <span>&copy; {new Date().getFullYear()} {siteConfig.name}.</span>
-            <span className="hidden sm:inline">Built with passion by Passau students.</span>
+            <span className="hidden sm:inline">{t.footer.builtWithPassion}</span>
           </p>
 
           <div className="flex items-center gap-6">

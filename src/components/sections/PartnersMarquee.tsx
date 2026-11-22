@@ -1,9 +1,13 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import { partnersData } from "@/data/partners";
 import { ArrowRight, Building2 } from "lucide-react";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 export function PartnersMarquee() {
+  const { t } = useLanguage();
   const featuredPartners = partnersData.filter((p) => p.featured);
 
   return (
@@ -13,10 +17,10 @@ export function PartnersMarquee() {
           <div>
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-950/50 text-[#4285F4] dark:text-blue-300 text-xs font-semibold uppercase tracking-wider mb-2">
               <Building2 className="w-3.5 h-3.5" />
-              <span>Campus & Industry Network</span>
+              <span>{t.partners.marqueeTag}</span>
             </div>
             <h3 className="text-xl sm:text-2xl font-bold text-[#202124] dark:text-[#F1F3F4] tracking-tight font-display">
-              Collaborating with Leading Industry & University Partners
+              {t.partners.marqueeTitle}
             </h3>
           </div>
 
@@ -24,7 +28,7 @@ export function PartnersMarquee() {
             href="/partners"
             className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-[#4285F4] dark:text-blue-400 hover:text-[#1A73E8] group"
           >
-            <span>Partner With Us</span>
+            <span>{t.partners.partnerWithUsCta}</span>
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </Link>
         </div>

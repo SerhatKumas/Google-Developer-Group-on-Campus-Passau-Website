@@ -22,6 +22,8 @@ export const de: Translations = {
     innovate: "Innovate.",
     bridge: "Bridge.",
     build: "Build.",
+    campusBadge: "Universität Passau • Niederbayern",
+    andWord: "und ",
     leadDescription: {
       part1:
         "Das führende technische und interdisziplinäre Netzwerk an der Universität Passau. Wir verbinden Macher aus",
@@ -98,6 +100,16 @@ export const de: Translations = {
       },
     ],
   },
+  events: {
+    statusOpen: "Anmeldung geöffnet",
+    statusLimited: "Begrenzte Plätze",
+    statusCompleted: "Abgeschlossen & Rückblick",
+    viewDetails: "Event-Details",
+    viewRecap: "Rückblick & Fotos",
+    addToCalendar: "Zum Kalender",
+    googleCalendar: "Google Kalender",
+    appleOutlook: "Apple / Outlook (.ics)",
+  },
   featuredEvents: {
     sectionTag: "Kommende Termine",
     sectionTitle: "Kommende Workshops & Community-Treffen",
@@ -121,12 +133,52 @@ export const de: Translations = {
     statusActive: "In aktiver Entwicklung",
     statusBeta: "Beta-Version",
     viewProject: "Projektdetails ansehen",
+    items: [
+      {
+        id: "internal-cms",
+        title: "Chapter-Management & Mitglieder-Portal",
+        tagline: "Rollenbasiertes Betriebssystem für GDG Passau",
+        description:
+          "Eine interne Next.js- & TypeScript-Plattform für digitalen Check-in, RSVP-Warteschlangen, Speaker-Koordination und automatisierte Zertifikatserstellung.",
+        status: "Aktiv",
+        linkText: "Zum Open-Source Repository",
+      },
+      {
+        id: "tech-newspaper",
+        title: "Passau Student Tech Chronicle",
+        tagline: "Zweimonatlicher studentischer Tech-Blog",
+        description:
+          "Kuratierte Publikation mit tiefgehenden Artikeln von Studierenden zu aktuellen KI-Papers, EU AI Act Analysen, Web-Architektur und Projekt-Rückblicken.",
+        status: "Aktiv",
+        linkText: "Neueste Ausgabe lesen",
+      },
+      {
+        id: "legaltech-sandbox",
+        title: "LegalTech & DSGVO Sandbox",
+        tagline: "Compliance-Starter-Kits für Entwickler",
+        description:
+          "Open-Source-Vorlagen für Passauer Gründer, damit Datenbanken, Auth-Flows und KI-Telemetrie von Tag eins an die Anforderungen der DSGVO und des EU AI Act erfüllen.",
+        status: "Beta",
+        linkText: "Templates erkunden",
+      },
+      {
+        id: "open-source-incubator",
+        title: "Drei-Flüsse Open-Source Inkubator",
+        tagline: "Praxislösungen für die Passauer Region",
+        description:
+          "Verbindung lokaler Vereine, studentischer Initiativen und Fakultäten mit Entwicklerteams, um gemeinnützige digitale Infrastruktur aufzubauen.",
+        status: "In Planung",
+        linkText: "Projekt vorschlagen",
+      },
+    ],
   },
   partners: {
     sectionTag: "Industrie & Universität",
     sectionTitle: "Unterstützt von Industrie und Universität",
     sectionSubtitle:
       "Zusammenarbeit mit führenden Technologieunternehmen und Universitätslehrstühlen, um Passauer Studierenden erstklassige Chancen zu bieten.",
+    marqueeTag: "Campus- & Unternehmensnetzwerk",
+    marqueeTitle: "Zusammenarbeit mit führenden Partnern aus Industrie und Universität",
     partnerWithUsCta: "Partner werden",
   },
   faq: {
@@ -139,19 +191,65 @@ export const de: Translations = {
       "Schließe dich 250+ Passauer Studierenden in unseren offiziellen Gruppen an. Die Mitgliedschaft ist kostenlos und für alle Fachbereiche offen.",
     ctaBoxButton: "WhatsApp-Community beitreten",
     ctaBoxContact: "Organisatoren kontaktieren",
+    items: [
+      {
+        id: "faq-1",
+        question: "Muss ich Informatik studieren, um bei GDG on Campus Passau mitzumachen?",
+        answer:
+          "Nein, absolut nicht! Eine unserer sechs tragenden Säulen ist die interdisziplinäre Synergie. Neben Studierenden aus Informatik und KI-Engineering engagieren sich bei uns Studierende aus Rechtswissenschaften (Rechtsinformatik/Legal Tech), Betriebswirtschaft, Medien & Kommunikation sowie Mathematik. Jeder an der Universität Passau mit Interesse an Technologie und digitalen Projekten ist herzlich willkommen.",
+      },
+      {
+        id: "faq-2",
+        question: "Ist die Mitgliedschaft kostenlos?",
+        answer:
+          "Ja, zu 100% kostenlos! GDG on Campus Passau ist eine ehrenamtliche, gemeinnützige Hochschulinitiative, die von Google for Developers unterstützt wird. Alle unsere Workshops, Hackathons, Netzwerkabende und Mentoring-Programme stehen Studierenden der Universität Passau gebührenfrei offen.",
+      },
+      {
+        id: "faq-3",
+        question: "Wie kann ich Teil eines der vier Leitungsteams werden?",
+        answer:
+          "Wir nehmen zu Beginn jedes Semesters (und bei Bedarf auch unter dem Semester) engagierte Studierende auf. Bewirb dich unkompliziert über unsere 'Mitmachen'-Seite oder sprich unsere Team-Leads direkt bei einem Event an. Uns zählen Neugier, Zuverlässigkeit und Motivation mehr als ein perfekter Lebenslauf.",
+      },
+      {
+        id: "faq-4",
+        question: "Wie funktioniert das Peer-to-Peer Mentoring-Programm?",
+        answer:
+          "Wir bringen erfahrene Master-Studierende (z.B. M.Sc. Informatik oder KI-Engineering) mit Bachelor-Studierenden zusammen. Gemeinsam arbeiten sie an Projekten, bereiten sich auf technische Interviews vor und tauschen praktisches Wissen aus – auf Augenhöhe und ohne Leistungsdruck.",
+      },
+      {
+        id: "faq-5",
+        question: "In welcher Beziehung steht GDG on Campus zu Google?",
+        answer:
+          "GDG on Campus ist ein weltweites Universitätsprogramm von Google for Developers. Wir agieren als eigenständige studentische Gruppe an der Universität Passau, erhalten jedoch direkten Zugang zu Lehrinhalten, Google Cloud Ressourcen, Speaker-Kontakten und Event-Support von Google.",
+      },
+      {
+        id: "faq-6",
+        question: "Wie bleibe ich über neue Events und Workshops informiert?",
+        answer:
+          "Am schnellsten über unsere offizielle WhatsApp-Community, in der wir Ankündigungen, Raumänderungen und Anmeldelinks teilen. Folge uns außerdem auf unserer offiziellen Bevy-Chapter-Seite sowie auf Instagram (@passaugdgoc) und LinkedIn.",
+      },
+    ],
   },
   footer: {
     description:
       "Das führende technische und interdisziplinäre studentische Netzwerk an der Universität Passau. Wir verbinden Engineering, KI und Rechtsinformatik, um Ideen in funktionierende Prototypen zu verwandeln.",
+    campusSub: "Universität Passau • Bayern, Deutschland",
+    builtWithPassion: "Mit Leidenschaft von Passauer Studierenden entwickelt.",
+    initiatives: [
+      { title: "Peer-Mentoring", subtitle: "Master- zu Bachelor-Tandems" },
+      { title: "Campus-Hackathons", subtitle: "Code for Passau 2026" },
+      { title: "Tech-Recht-Synergie", subtitle: "DSGVO- & KI-Ethik-Audits" },
+      { title: "Google-Exkursionen", subtitle: "Besuche im Google GSEC München" },
+    ],
     navigationHeader: "Navigation",
     initiativesHeader: "Initiativen",
     hubHeader: "Campus-Hub",
     legalHeader: "Rechtliches",
-    rightsReserved: "Alle Rechte vorbehalten. Proprietäre Chapter-Website.",
+    rightsReserved: "Alle Rechte vorbehalten. Offizielle Chapter-Website.",
     studentNotice:
-      "Google Developer Group on Campus Passau ist eine unabhängige, studentische Initiative im Rahmen des globalen Google for Developers Programms an der Universität Passau.",
+      "Google Developer Group on Campus Passau ist eine unabhängige, ehrenamtliche studentische Organisation im Rahmen des globalen Google for Developers Hochschulprogramms an der Universität Passau.",
     privacy: "Datenschutzerklärung",
     impressum: "Impressum",
-    contact: "Organisatoren kontaktieren",
+    contact: "Kontakt",
   },
 };

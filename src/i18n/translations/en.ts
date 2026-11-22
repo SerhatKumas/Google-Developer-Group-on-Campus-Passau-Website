@@ -22,6 +22,8 @@ export const en: Translations = {
     innovate: "Innovate.",
     bridge: "Bridge.",
     build: "Build.",
+    campusBadge: "University of Passau • Lower Bavaria",
+    andWord: "and ",
     leadDescription: {
       part1:
         "The premier technical & interdisciplinary network at the University of Passau. We bring together builders in",
@@ -98,6 +100,16 @@ export const en: Translations = {
       },
     ],
   },
+  events: {
+    statusOpen: "Open for Registration",
+    statusLimited: "Spots Limited",
+    statusCompleted: "Completed & Recapped",
+    viewDetails: "Event Details",
+    viewRecap: "View Recap & Photos",
+    addToCalendar: "Add to Calendar",
+    googleCalendar: "Google Calendar",
+    appleOutlook: "Apple / Outlook (.ics)",
+  },
   featuredEvents: {
     sectionTag: "Upcoming Sessions",
     sectionTitle: "Upcoming Workshops & Community Meetups",
@@ -121,12 +133,52 @@ export const en: Translations = {
     statusActive: "Active Build",
     statusBeta: "Beta Release",
     viewProject: "View Project Details",
+    items: [
+      {
+        id: "internal-cms",
+        title: "Chapter Management CMS & Portal",
+        tagline: "Role-Based Operating System for GDG Passau",
+        description:
+          "A Next.js & TypeScript internal platform streamlining member check-ins, event RSVP queues, speaker logistics, and digital certificate generation.",
+        status: "Active",
+        linkText: "View Open Repository",
+      },
+      {
+        id: "tech-newspaper",
+        title: "Passau Student Tech Chronicle",
+        tagline: "Bi-Monthly Student Engineering Blog",
+        description:
+          "Curated publication featuring deep dives from university students into AI papers, EU AI Act interpretations, web architecture breakdowns, and campus project post-mortems.",
+        status: "Active",
+        linkText: "Read Latest Edition",
+      },
+      {
+        id: "legaltech-sandbox",
+        title: "LegalTech & GDPR Sandbox",
+        tagline: "Compliance-First Architecture Starter Kits",
+        description:
+          "Open-source starter templates for Bavarian student founders ensuring their databases, auth flows, and LLM telemetry strictly satisfy GDPR and the EU AI Act by default.",
+        status: "Beta",
+        linkText: "Explore Templates",
+      },
+      {
+        id: "open-source-incubator",
+        title: "Three-River Open Source Incubator",
+        tagline: "Ship Deployable Code for the Passau Community",
+        description:
+          "Connecting local NGOs, student initiatives, and university faculty with student engineering squads to build and maintain open-source public goods.",
+        status: "Planning",
+        linkText: "Propose a Project",
+      },
+    ],
   },
   partners: {
     sectionTag: "Industry & Campus",
     sectionTitle: "Supported by Industry & University Networks",
     sectionSubtitle:
       "Collaborating with tech leaders and campus departments to bring world-class opportunities to Passau students.",
+    marqueeTag: "Campus & Industry Network",
+    marqueeTitle: "Collaborating with Leading Industry & University Partners",
     partnerWithUsCta: "Partner With Us",
   },
   faq: {
@@ -139,10 +191,56 @@ export const en: Translations = {
       "Join 250+ University of Passau students in our official community groups. Free membership, open to all study disciplines.",
     ctaBoxButton: "Join WhatsApp Community",
     ctaBoxContact: "Contact Chapter Organizers",
+    items: [
+      {
+        id: "faq-1",
+        question: "Do I need to be a Computer Science major to join GDG on Campus Passau?",
+        answer:
+          "Absolutely not! One of our 6 core pillars is Interdisciplinary Synergy. While we have many Computer Science and AI Engineering students, our members include students from Law (Rechtsinformatik/Legal Tech), Business Administration, Media & Communication, and Mathematics. Any student at the University of Passau with a curiosity for technology, digital products, or leadership is warmly welcome.",
+      },
+      {
+        id: "faq-2",
+        question: "Is membership free?",
+        answer:
+          "Yes, 100% free! GDG on Campus Passau is a voluntary, non-profit student initiative supported by Google for Developers. All our workshops, hackathons, open-air mixers, and mentoring sessions are completely free of charge for University of Passau students.",
+      },
+      {
+        id: "faq-3",
+        question: "How can I join one of the 4 Core Leadership Teams?",
+        answer:
+          "We recruit passionate builders at the beginning of each semester (and on a rolling basis for specialized roles). You can apply through our Join Us page by selecting 'Join a Core Team', or approach any of our Team Leads during an event. We look for motivation, consistency, and a desire to learn rather than an intimidating CV.",
+      },
+      {
+        id: "faq-4",
+        question: "How does the Tiered Peer-to-Peer Mentorship program work?",
+        answer:
+          "We match senior Master's students (e.g. M.Sc. Computer Science or M.Sc. AI Engineering) with Bachelor's students for guided project builds, technical interview preparation, and code reviews. Mentors provide 1-on-1 feedback, helping juniors avoid common pitfalls and gain production-level confidence early.",
+      },
+      {
+        id: "faq-5",
+        question: "What is the relationship between GDG on Campus and Google?",
+        answer:
+          "GDG on Campus (Google Developer Groups on Campus) is a global university program powered by Google for Developers. We operate independently as a student-led university chapter, while receiving direct curriculum access, technical resources, cloud credits, and event support from Google.",
+      },
+      {
+        id: "faq-6",
+        question: "How can I stay up-to-date on upcoming events and workshops?",
+        answer:
+          "The fastest way is our official WhatsApp Community Group, where we post instant reminders, room changes, and registration drops. You can also join our official Bevy chapter page and follow our Instagram (@passaugdgoc) and LinkedIn.",
+      },
+    ],
   },
   footer: {
     description:
       "The premier technical and interdisciplinary student network at the University of Passau. Bridging engineering, AI, and technical law to transform ideas into working prototypes.",
+    campusSub: "University of Passau • Bavaria, Germany",
+    builtWithPassion: "Built with passion by Passau students.",
+    initiatives: [
+      { title: "Peer Mentorship", subtitle: "Master's to Bachelor's pairs" },
+      { title: "Civic Hackathons", subtitle: "Code for Passau 2026" },
+      { title: "Tech-Law Synergy", subtitle: "GDPR & AI Ethics Audits" },
+      { title: "Google Tech Trips", subtitle: "Google Munich GSEC Visits" },
+    ],
     navigationHeader: "Explore",
     initiativesHeader: "Initiatives",
     hubHeader: "Campus Hub",

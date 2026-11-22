@@ -2,14 +2,14 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { faqsData } from "@/data/faq";
 import { ChevronDown, HelpCircle, ArrowRight } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { cn } from "@/lib/utils";
+import { siteConfig } from "@/config/site";
 
 export function FaqAccordion() {
-  const [openId, setOpenId] = useState<string | null>("faq-1");
   const { t } = useLanguage();
+  const [openId, setOpenId] = useState<string | null>("faq-1");
 
   const toggleFaq = (id: string) => {
     setOpenId(openId === id ? null : id);
@@ -33,7 +33,7 @@ export function FaqAccordion() {
 
         {/* Accordion List */}
         <div className="space-y-3">
-          {faqsData.map((faq) => {
+          {t.faq.items.map((faq) => {
             const isOpen = openId === faq.id;
             return (
               <div
@@ -65,29 +65,33 @@ export function FaqAccordion() {
           })}
         </div>
 
-        {/* Final Join CTA Banner */}
-        <div className="mt-16 rounded-3xl bg-linear-to-r from-blue-600 via-blue-700 to-indigo-700 p-8 sm:p-12 text-white text-center relative overflow-hidden shadow-xl">
-          <div className="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-white/10 rounded-full blur-2xl pointer-events-none" />
-          <div className="relative z-10 max-w-2xl mx-auto space-y-4">
-            <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight font-display">
+        {/* Final CTA Box */}
+        <div className="mt-14 rounded-3xl bg-neutral-900 text-white p-8 sm:p-10 text-center relative overflow-hidden shadow-xl">
+          <div className="absolute top-0 right-0 w-72 h-72 bg-[#4285F4]/20 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-72 h-72 bg-[#34A853]/20 rounded-full blur-3xl pointer-events-none" />
+
+          <div className="relative z-10 max-w-xl mx-auto space-y-4">
+            <h3 className="text-2xl sm:text-3xl font-bold font-display">
               {t.faq.ctaBoxTitle}
             </h3>
-            <p className="text-sm sm:text-base text-blue-100 leading-relaxed">
+            <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed">
               {t.faq.ctaBoxSubtitle}
             </p>
-            <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link
-                href="/contact"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-sm font-semibold bg-white text-[#4285F4] hover:bg-neutral-100 shadow-md transition-colors"
-              >
-                <span>{t.faq.ctaBoxContact}</span>
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-              <Link
-                href="/team"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-sm font-semibold text-white bg-white/15 hover:bg-white/25 border border-white/20 transition-colors"
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
+              <a
+                href={siteConfig.socials.whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[#4285F4] hover:bg-[#1A73E8] text-white text-sm font-semibold transition-all shadow-md"
               >
                 <span>{t.faq.ctaBoxButton}</span>
+                <ArrowRight className="w-4 h-4" />
+              </a>
+              <Link
+                href="/contact"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 text-white text-sm font-semibold border border-white/20 transition-all"
+              >
+                <span>{t.faq.ctaBoxContact}</span>
               </Link>
             </div>
           </div>

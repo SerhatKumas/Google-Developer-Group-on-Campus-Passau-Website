@@ -7,6 +7,7 @@ import { useLanguage } from "@/i18n/LanguageContext";
 
 export function InitiativesSpotlight() {
   const { t } = useLanguage();
+
   const getIcon = (icon: string, color: string) => {
     const props = { className: "w-5 h-5", style: { color } };
     switch (icon) {
@@ -38,52 +39,60 @@ export function InitiativesSpotlight() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-          {initiativesData.map((item) => (
-            <div
-              key={item.id}
-              className="group relative rounded-2xl bg-[#F8F9FA] dark:bg-[#1E1F23] border border-[#E8EAED] dark:border-[#2D2F34] p-6 sm:p-8 flex flex-col justify-between hover:shadow-lg transition-all"
-            >
-              <div>
-                <div className="flex items-center justify-between gap-4 mb-4">
-                  <div
-                    className="w-11 h-11 rounded-xl flex items-center justify-center"
-                    style={{ backgroundColor: `${item.badgeColor}15` }}
-                  >
-                    {getIcon(item.icon, item.badgeColor)}
+          {t.initiatives.items.map((item) => {
+            const staticMeta = initiativesData.find((d) => d.id === item.id) || {
+              badgeColor: "#4285F4",
+              icon: "GitBranch",
+              githubUrl: "https://github.com/gdg-on-campus-passau",
+            };
+
+            return (
+              <div
+                key={item.id}
+                className="group relative rounded-2xl bg-[#F8F9FA] dark:bg-[#1E1F23] border border-[#E8EAED] dark:border-[#2D2F34] p-6 sm:p-8 flex flex-col justify-between hover:shadow-lg transition-all"
+              >
+                <div>
+                  <div className="flex items-center justify-between gap-4 mb-4">
+                    <div
+                      className="w-11 h-11 rounded-xl flex items-center justify-center"
+                      style={{ backgroundColor: `${staticMeta.badgeColor}15` }}
+                    >
+                      {getIcon(staticMeta.icon, staticMeta.badgeColor)}
+                    </div>
+                    <span
+                      className="text-[11px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full border"
+                      style={{
+                        borderColor: `${staticMeta.badgeColor}40`,
+                        color: staticMeta.badgeColor,
+                      }}
+                    >
+                      {item.status}
+                    </span>
                   </div>
-                  <span
-                    className="text-[11px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full border"
-                    style={{
-                      borderColor: `${item.badgeColor}40`,
-                      color: item.badgeColor,
-                    }}
-                  >
-                    {item.status}
+
+                  <span className="text-xs font-semibold text-[#5F6368] dark:text-[#9AA0A6]">
+                    {item.tagline}
                   </span>
+                  <h3 className="font-semibold text-xl text-[#202124] dark:text-[#F1F3F4] tracking-tight mt-1 mb-2 font-display">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm text-[#5F6368] dark:text-[#9AA0A6] leading-relaxed">
+                    {item.description}
+                  </p>
                 </div>
 
-                <span className="text-xs font-semibold text-[#5F6368] dark:text-[#9AA0A6]">
-                  {item.tagline}
-                </span>
-                <h3 className="font-semibold text-xl text-[#202124] dark:text-[#F1F3F4] tracking-tight mt-1 mb-2 font-display">
-                  {item.title}
-                </h3>
-                <p className="text-sm text-[#5F6368] dark:text-[#9AA0A6] leading-relaxed">
-                  {item.description}
-                </p>
+                <div className="pt-5 mt-4 border-t border-[#E8EAED] dark:border-[#2D2F34]">
+                  <Link
+                    href={staticMeta.githubUrl || "/contact"}
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#4285F4] dark:text-blue-400 hover:text-[#1A73E8]"
+                  >
+                    <span>{item.linkText}</span>
+                    <ArrowUpRight className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
               </div>
-
-              <div className="pt-5 mt-4 border-t border-[#E8EAED] dark:border-[#2D2F34]">
-                <Link
-                  href={item.githubUrl || "/contact"}
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#4285F4] dark:text-blue-400 hover:text-[#1A73E8]"
-                >
-                  <span>{item.linkText || "Learn More"}</span>
-                  <ArrowUpRight className="w-3.5 h-3.5" />
-                </Link>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

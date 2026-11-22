@@ -278,7 +278,7 @@ export function HeroEntrance() {
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-neutral-100 dark:bg-neutral-800/80 border border-[#E8EAED] dark:border-[#2D2F34] text-xs font-semibold text-[#202124] dark:text-[#F1F3F4] shadow-2xs">
                 <span className="w-2 h-2 rounded-full bg-[#34A853] animate-pulse" />
                 <MapPin className="w-3.5 h-3.5 text-[#EA4335]" />
-                <span>University of Passau &bull; Lower Bavaria</span>
+                <span>{t.hero.campusBadge}</span>
               </div>
 
               {/* Bold Headline */}
@@ -292,7 +292,7 @@ export function HeroEntrance() {
                 {t.hero.leadDescription.part1}{" "}
                 <strong className="text-[#202124] dark:text-white font-semibold">{t.hero.leadDescription.cs}</strong>,{" "}
                 <strong className="text-[#202124] dark:text-white font-semibold">{t.hero.leadDescription.ai}</strong>,{" "}
-                {t.hero.leadDescription.part2 ? "and " : ""}
+                {t.hero.leadDescription.part2 ? t.hero.andWord : ""}
                 <strong className="text-[#202124] dark:text-white font-semibold">{t.hero.leadDescription.law}</strong>{" "}
                 {t.hero.leadDescription.part2}
               </p>

@@ -6,6 +6,7 @@ import Link from "next/link";
 import { EventItem } from "@/types";
 import { formatBerlinDateTime, generateGoogleCalendarUrl, generateIcsFile } from "@/lib/utils";
 import { Calendar, MapPin, ArrowUpRight, Download, CalendarPlus, ChevronDown } from "lucide-react";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 interface EventCardProps {
   event: EventItem;
@@ -13,6 +14,7 @@ interface EventCardProps {
 
 export function EventCard({ event }: EventCardProps) {
   const [calendarOpen, setCalendarOpen] = useState(false);
+  const { t } = useLanguage();
 
   const googleCalUrl = generateGoogleCalendarUrl({
     title: event.title,
@@ -48,20 +50,20 @@ export function EventCard({ event }: EventCardProps) {
         return (
           <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-[#E6F4EA] text-[#137333] dark:bg-emerald-950/50 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800">
             <span className="w-1.5 h-1.5 rounded-full bg-[#34A853] animate-pulse" />
-            Open for Registration
+            {t.events.statusOpen}
           </span>
         );
       case "Spots Limited":
         return (
           <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-[#FEF7E0] text-[#B06000] dark:bg-amber-950/50 dark:text-amber-300 border border-amber-200 dark:border-amber-800">
             <span className="w-1.5 h-1.5 rounded-full bg-[#FBBC04]" />
-            Spots Limited
+            {t.events.statusLimited}
           </span>
         );
       case "Completed":
         return (
           <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-neutral-100 text-neutral-600 dark:bg-neutral-800 dark:text-neutral-400 border border-neutral-200 dark:border-neutral-700">
-            Completed & Recapped
+            {t.events.statusCompleted}
           </span>
         );
     }
@@ -125,7 +127,7 @@ export function EventCard({ event }: EventCardProps) {
           href={`/events/${event.slug}`}
           className="text-xs sm:text-sm font-semibold text-[#4285F4] dark:text-blue-400 hover:text-[#1A73E8] inline-flex items-center gap-1 group/link"
         >
-          <span>{event.status === "Completed" ? "View Recap & Photos" : "Event Details"}</span>
+          <span>{event.status === "Completed" ? t.events.viewRecap : t.events.viewDetails}</span>
           <ArrowUpRight className="w-4 h-4 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
         </Link>
 
@@ -138,7 +140,7 @@ export function EventCard({ event }: EventCardProps) {
               aria-label="Add event to calendar"
             >
               <CalendarPlus className="w-3.5 h-3.5 text-[#4285F4]" />
-              <span className="hidden sm:inline">Add to Calendar</span>
+              <span className="hidden sm:inline">{t.events.addToCalendar}</span>
               <ChevronDown className="w-3 h-3 text-neutral-400" />
             </button>
 
@@ -152,7 +154,7 @@ export function EventCard({ event }: EventCardProps) {
                   className="flex items-center gap-2 px-3 py-2 text-xs text-[#202124] dark:text-[#F1F3F4] hover:bg-neutral-100 dark:hover:bg-neutral-800"
                 >
                   <ArrowUpRight className="w-3.5 h-3.5 text-[#4285F4]" />
-                  <span>Google Calendar</span>
+                  <span>{t.events.googleCalendar}</span>
                 </a>
                 <button
                   onClick={handleDownloadIcs}
@@ -160,7 +162,7 @@ export function EventCard({ event }: EventCardProps) {
                   className="w-full flex items-center gap-2 px-3 py-2 text-xs text-left text-[#202124] dark:text-[#F1F3F4] hover:bg-neutral-100 dark:hover:bg-neutral-800"
                 >
                   <Download className="w-3.5 h-3.5 text-[#34A853]" />
-                  <span>Apple / Outlook (.ics)</span>
+                  <span>{t.events.appleOutlook}</span>
                 </button>
               </div>
             )}

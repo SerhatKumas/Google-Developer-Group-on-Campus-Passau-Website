@@ -21,6 +21,8 @@ export interface Translations {
     innovate: string;
     bridge: string;
     build: string;
+    campusBadge: string;
+    andWord: string;
     leadDescription: {
       part1: string;
       cs: string;
@@ -57,6 +59,16 @@ export interface Translations {
       description: string;
     }[];
   };
+  events: {
+    statusOpen: string;
+    statusLimited: string;
+    statusCompleted: string;
+    viewDetails: string;
+    viewRecap: string;
+    addToCalendar: string;
+    googleCalendar: string;
+    appleOutlook: string;
+  };
   featuredEvents: {
     sectionTag: string;
     sectionTitle: string;
@@ -77,11 +89,21 @@ export interface Translations {
     statusActive: string;
     statusBeta: string;
     viewProject: string;
+    items: {
+      id: string;
+      title: string;
+      tagline: string;
+      description: string;
+      status: string;
+      linkText: string;
+    }[];
   };
   partners: {
     sectionTag: string;
     sectionTitle: string;
     sectionSubtitle: string;
+    marqueeTag: string;
+    marqueeTitle: string;
     partnerWithUsCta: string;
   };
   faq: {
@@ -92,9 +114,20 @@ export interface Translations {
     ctaBoxSubtitle: string;
     ctaBoxButton: string;
     ctaBoxContact: string;
+    items: {
+      id: string;
+      question: string;
+      answer: string;
+    }[];
   };
   footer: {
     description: string;
+    campusSub: string;
+    builtWithPassion: string;
+    initiatives: {
+      title: string;
+      subtitle: string;
+    }[];
     navigationHeader: string;
     initiativesHeader: string;
     hubHeader: string;
