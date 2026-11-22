@@ -12,13 +12,13 @@ export function Footer() {
           {/* Organization Info */}
           <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-xl bg-white p-1 border border-[#E8EAED] shadow-xs flex items-center justify-center">
+              <div className="relative h-12 w-16 sm:h-14 sm:w-20 shrink-0">
                 <Image
-                  src="/images/logo/gdg-passau-logo.png"
+                  src="/images/logo/gdg-passau-clean.png"
                   alt="GDG on Campus Passau Logo"
-                  width={48}
-                  height={48}
-                  className="object-contain w-full h-full"
+                  fill
+                  sizes="(max-width: 640px) 64px, 80px"
+                  className="object-contain"
                 />
               </div>
               <div>

@@ -39,15 +39,15 @@ export function Navbar() {
             onClick={() => setIsOpen(false)}
             className="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#4285F4] rounded-xl py-1 px-1"
           >
-            {/* Crisp Logo Container to preserve official clear space */}
-            <div className="relative w-12 h-12 rounded-xl bg-white p-1 border border-[#E8EAED] dark:border-[#2D2F34] shadow-xs flex items-center justify-center overflow-hidden transition-transform group-hover:scale-105">
+            {/* Official Chapter Logo (transparent, no square wrapper, prominently sized) */}
+            <div className="relative h-12 w-16 sm:h-14 sm:w-20 shrink-0 transition-transform duration-200 group-hover:scale-105">
               <Image
-                src="/images/logo/gdg-passau-logo.png"
+                src="/images/logo/gdg-passau-clean.png"
                 alt="Google Developer Group on Campus Passau Logo"
-                width={48}
-                height={48}
+                fill
                 priority
-                className="object-contain w-full h-full"
+                sizes="(max-width: 640px) 64px, 80px"
+                className="object-contain"
               />
             </div>
             <div className="flex flex-col">
