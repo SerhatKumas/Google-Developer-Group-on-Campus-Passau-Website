@@ -1,0 +1,13 @@
+# Cursor Rules — GDG on Campus Passau
+# Master instructions: ai-driven-development/agents/CURSORRULES.md
+# Rule specifications: ai-driven-development/rules/
+
+Read and follow:
+- ai-driven-development/agents/CURSORRULES.md
+- ai-driven-development/rules/01-git-and-branching.md
+- ai-driven-development/rules/02-commit-and-push.md
+- ai-driven-development/rules/03-frontend-standards.md
+- ai-driven-development/rules/04-backend-and-api.md
+- ai-driven-development/rules/05-database-and-cms.md
+
+Always verify every task: npm run lint && npm run build
