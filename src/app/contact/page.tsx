@@ -141,14 +141,14 @@ export default function ContactPage() {
                 </span>
               </div>
               <h3 className="font-bold text-lg text-[#202124] dark:text-[#F1F3F4] font-display">
-                Instagram (@gdgpassau)
+                Instagram (@passaugdgoc)
               </h3>
               <p className="text-xs sm:text-sm text-[#5F6368] dark:text-[#9AA0A6] mt-1 leading-relaxed">
                 Event stories, student takeovers, behind-the-scenes build videos, and real-time reminders.
               </p>
             </div>
             <div className="pt-4 mt-2 flex items-center gap-1.5 text-xs font-bold text-[#EA4335] group-hover:underline">
-              <span>Follow @gdgpassau</span>
+              <span>Follow @passaugdgoc</span>
               <ArrowUpRight className="w-4 h-4" />
             </div>
           </a>

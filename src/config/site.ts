@@ -15,12 +15,12 @@ export const siteConfig = {
   url: "https://gdgpassau.de",
   ogImage: "/images/logo/gdg-passau-logo.png",
   logo: "/images/logo/gdg-passau-logo.png",
-  email: "gdgoncampuspassau@gmail.com",
+  email: "gdgocpassau@gmail.com",
   socials: {
-    whatsapp: "https://chat.whatsapp.com/GDGPassauCommunityHub",
+    whatsapp: "https://chat.whatsapp.com/H718mhdh8hsHQElmOlzQym?mode=gi_t",
     bevy: "https://gdg.community.dev/gdg-on-campus-university-of-passau-passau-germany/",
     linkedin: "https://www.linkedin.com/company/gdg-on-campus-passau/",
-    instagram: "https://www.instagram.com/gdgpassau/",
+    instagram: "https://www.instagram.com/passaugdgoc/",
     github: "https://github.com/gdg-on-campus-passau",
   },
   stats: [

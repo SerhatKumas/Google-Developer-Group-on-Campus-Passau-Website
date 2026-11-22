@@ -45,7 +45,7 @@ export const faqsData: FaqItem[] = [
     id: "faq-6",
     question: "How can I stay up-to-date on upcoming events and workshops?",
     answer:
-      "The fastest way is our official WhatsApp Community Group, where we post instant reminders, room changes, and registration drops. You can also join our official Bevy chapter page and follow our Instagram (@gdgpassau) and LinkedIn.",
+      "The fastest way is our official WhatsApp Community Group, where we post instant reminders, room changes, and registration drops. You can also join our official Bevy chapter page and follow our Instagram (@passaugdgoc) and LinkedIn.",
     category: "Membership",
   },
 ];
