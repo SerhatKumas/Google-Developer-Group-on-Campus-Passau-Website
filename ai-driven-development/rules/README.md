@@ -40,7 +40,7 @@ Every AI agent working in this repository automatically reads its designated con
 ## ⚡ Non-Negotiable AI Rules Summary
 
 1. **Never Develop on `main` Branch:** Direct development or direct commits on `main` are strictly prohibited. Agents must ALWAYS create and switch to an isolated branch (`feat/<name>`, `fix/<name>`, `chore/<name>`) before writing or editing code.
-2. **Deterministic Verification:** Every AI agent turn that modifies code **MUST** conclude with `npm run lint && npm run build`. The exit code must be `0`.
+2. **Deterministic Verification:** Every AI agent turn that modifies code **MUST** conclude with `npm run audit && npm run lint && npm run build`. The exit code must be `0`.
 3. **React 19 Rule:** Never call `setState` synchronously within a `useEffect` body. Use `useSyncExternalStore` or event-driven updates.
 4. **No Raw Script Tags:** Never render `<script>` tags inside JSX components.
 5. **Google Design Tokens:** Never invent arbitrary hex codes. Use CSS design tokens (`--google-blue`, etc.).
