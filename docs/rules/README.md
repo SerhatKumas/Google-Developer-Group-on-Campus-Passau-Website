@@ -7,7 +7,7 @@
 ## 📂 Rules Directory Structure
 
 ```text
-ai-driven-development/
+docs/
 └── rules/
     ├── README.md                      # Overview & Agent Selection Guide
     ├── 01-git-and-branching.md        # Branch naming, rebase rules & hygiene

@@ -1,6 +1,6 @@
 # Claude Code Rules — GDG on Campus Passau
 
-> **Master Instructions:** See **[`ai-driven-development/agents/CLAUDE.md`](./ai-driven-development/agents/CLAUDE.md)** and **[`ai-driven-development/rules/`](./ai-driven-development/rules/)**.
+> **Master Instructions:** See **[`docs/agents/CLAUDE.md`](./docs/agents/CLAUDE.md)** and **[`docs/rules/`](./docs/rules/)**.
 
 ## Essential Commands
 - **Dev:** `npm run dev`

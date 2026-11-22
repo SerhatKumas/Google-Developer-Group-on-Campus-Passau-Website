@@ -1,14 +1,14 @@
 # Cursor Rules — GDG on Campus Passau
-# Master instructions: ai-driven-development/agents/CURSORRULES.md
-# Rule specifications: ai-driven-development/rules/
+# Master instructions: docs/agents/CURSORRULES.md
+# Rule specifications: docs/rules/
 
 Read and follow:
 - NEVER develop or commit on main branch. Always create a branch (feat/*, fix/*).
-- ai-driven-development/agents/CURSORRULES.md
-- ai-driven-development/rules/01-git-and-branching.md
-- ai-driven-development/rules/02-commit-and-push.md
-- ai-driven-development/rules/03-frontend-standards.md
-- ai-driven-development/rules/04-backend-and-api.md
-- ai-driven-development/rules/05-database-and-cms.md
+- docs/agents/CURSORRULES.md
+- docs/rules/01-git-and-branching.md
+- docs/rules/02-commit-and-push.md
+- docs/rules/03-frontend-standards.md
+- docs/rules/04-backend-and-api.md
+- docs/rules/05-database-and-cms.md
 
-Always verify every task: npm run lint && npm run build
+Always verify every task: npm run audit && npm run lint && npm run build

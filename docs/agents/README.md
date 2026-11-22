@@ -15,4 +15,4 @@ AI coding tools look for their configuration files in hardcoded root paths:
 - Cursor looks for `.cursorrules` at project root.
 - GitHub Copilot looks for `.github/copilot-instructions.md`.
 
-To keep the repository clean while maintaining 100% agent compatibility, the root files act as lightweight pointers directing the agents to read the master documentation in this folder and in `ai-driven-development/rules/`.
+To keep the repository clean while maintaining 100% agent compatibility, the root files act as lightweight pointers directing the agents to read the master documentation in this folder and in `docs/rules/`.
