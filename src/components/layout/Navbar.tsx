@@ -7,12 +7,34 @@ import { usePathname } from "next/navigation";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import { siteConfig } from "@/config/site";
 import { ThemeToggle } from "./ThemeToggle";
+import { LanguageToggle } from "./LanguageToggle";
+import { useLanguage } from "@/i18n/LanguageContext";
 import { cn } from "@/lib/utils";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
+  const { t } = useLanguage();
+
+  const getTranslatedName = (href: string, fallback: string) => {
+    switch (href) {
+      case "/":
+        return t.nav.home;
+      case "/team":
+        return t.nav.team;
+      case "/events":
+        return t.nav.events;
+      case "/partners":
+        return t.nav.partners;
+      case "/gallery":
+        return t.nav.gallery;
+      case "/contact":
+        return t.nav.contact;
+      default:
+        return fallback;
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -69,6 +91,7 @@ export function Navbar() {
           <nav className="hidden md:flex items-center gap-1 lg:gap-2">
             {siteConfig.navLinks.map((link) => {
               const isActive = pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href));
+              const label = getTranslatedName(link.href, link.name);
               return (
                 <Link
                   key={link.href}
@@ -80,7 +103,7 @@ export function Navbar() {
                       : "text-[#5F6368] dark:text-[#9AA0A6] hover:text-[#202124] dark:hover:text-[#F1F3F4] hover:bg-neutral-100 dark:hover:bg-neutral-800/60"
                   )}
                 >
-                  <span className={cn(isActive && "-translate-y-0.5")}>{link.name}</span>
+                  <span className={cn(isActive && "-translate-y-0.5")}>{label}</span>
                   {isActive && (
                     <span className="absolute bottom-1.5 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[#4285F4] dark:bg-blue-400 shadow-xs" />
                   )}
@@ -91,6 +114,7 @@ export function Navbar() {
 
           {/* Right Action Icons & CTA */}
           <div className="hidden sm:flex items-center gap-3">
+            <LanguageToggle />
             <ThemeToggle />
             <Link
               href={siteConfig.socials.whatsapp}
@@ -98,13 +122,14 @@ export function Navbar() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 px-4 py-2 text-sm font-medium text-white bg-[#4285F4] hover:bg-[#1A73E8] rounded-full shadow-xs hover:shadow-md transition-all duration-150 transform hover:-translate-y-0.5 active:translate-y-0"
             >
-              <span>Join Community</span>
+              <span>{t.nav.joinCommunity}</span>
               <ArrowUpRight className="w-4 h-4" />
             </Link>
           </div>
 
           {/* Mobile Menu Button */}
           <div className="flex items-center gap-2 md:hidden">
+            <LanguageToggle />
             <ThemeToggle />
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -125,6 +150,7 @@ export function Navbar() {
           <nav className="flex flex-col space-y-1">
             {siteConfig.navLinks.map((link) => {
               const isActive = pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href));
+              const label = getTranslatedName(link.href, link.name);
               return (
                 <Link
                   key={link.href}
@@ -137,7 +163,7 @@ export function Navbar() {
                       : "text-[#5F6368] dark:text-[#9AA0A6] hover:text-[#202124] dark:hover:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800/60"
                   )}
                 >
-                  <span>{link.name}</span>
+                  <span>{label}</span>
                   {isActive && <div className="w-2 h-2 rounded-full bg-[#4285F4]" />}
                 </Link>
               );
@@ -151,7 +177,7 @@ export function Navbar() {
               onClick={() => setIsOpen(false)}
               className="w-full flex items-center justify-center gap-2 py-3 px-4 text-center font-medium text-white bg-[#4285F4] hover:bg-[#1A73E8] rounded-xl shadow-xs"
             >
-              <span>Join WhatsApp Hub</span>
+              <span>{t.nav.joinWhatsApp}</span>
               <ArrowUpRight className="w-4 h-4" />
             </Link>
             <Link
@@ -161,7 +187,7 @@ export function Navbar() {
               onClick={() => setIsOpen(false)}
               className="w-full flex items-center justify-center gap-2 py-2.5 px-4 text-center text-sm font-medium text-neutral-700 dark:text-neutral-200 bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 rounded-xl"
             >
-              <span>Official GDG Chapter Page</span>
+              <span>{t.nav.officialBevy}</span>
               <ArrowUpRight className="w-4 h-4" />
             </Link>
           </div>

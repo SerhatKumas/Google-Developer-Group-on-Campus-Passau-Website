@@ -11,9 +11,11 @@ import {
   MapPin,
   ChevronDown,
 } from "lucide-react";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 export function HeroEntrance() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const { t } = useLanguage();
 
   // Track scroll progress within this 220vh container
   const { scrollYProgress } = useScroll({
@@ -237,7 +239,7 @@ export function HeroEntrance() {
               </h1>
 
               <p className="text-base sm:text-lg text-[#5F6368] dark:text-[#9AA0A6] max-w-lg mx-auto lg:mx-0 font-normal">
-                The premier student engineering & interdisciplinary network bridging Computer Science, AI, and Technical Law.
+                {t.hero.subtitle}
               </p>
             </motion.div>
           </div>
@@ -249,7 +251,7 @@ export function HeroEntrance() {
             onClick={handleScrollToExplore}
           >
             <span className="text-xs font-semibold uppercase tracking-wider text-[#5F6368] dark:text-[#9AA0A6] group-hover:text-[#4285F4] transition-colors">
-              Scroll to Explore
+              {t.hero.scrollToExplore}
             </span>
             <div className="w-8 h-8 rounded-full bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center text-neutral-500 group-hover:text-[#4285F4] group-hover:bg-blue-50 dark:group-hover:bg-blue-950/40 transition-all animate-bounce">
               <ChevronDown className="w-4 h-4" />
@@ -281,16 +283,18 @@ export function HeroEntrance() {
 
               {/* Bold Headline */}
               <h2 className="font-extrabold text-4xl sm:text-5xl lg:text-6xl tracking-tight text-[#202124] dark:text-[#F1F3F4] font-display leading-[1.1]">
-                Innovate. <span className="text-[#4285F4]">Bridge.</span>{" "}
-                <span className="google-gradient-text">Build.</span>
+                {t.hero.innovate} <span className="text-[#4285F4]">{t.hero.bridge}</span>{" "}
+                <span className="google-gradient-text">{t.hero.build}</span>
               </h2>
 
               {/* Subheading */}
               <p className="text-base sm:text-lg text-[#5F6368] dark:text-[#9AA0A6] leading-relaxed max-w-xl mx-auto lg:mx-0">
-                The premier technical & interdisciplinary network at the University of Passau. 
-                We bring together builders in <strong className="text-[#202124] dark:text-white font-semibold">Computer Science</strong>,{" "}
-                <strong className="text-[#202124] dark:text-white font-semibold">AI Engineering</strong>, and{" "}
-                <strong className="text-[#202124] dark:text-white font-semibold">Technical Law</strong> to transform bold concepts into production-grade applications.
+                {t.hero.leadDescription.part1}{" "}
+                <strong className="text-[#202124] dark:text-white font-semibold">{t.hero.leadDescription.cs}</strong>,{" "}
+                <strong className="text-[#202124] dark:text-white font-semibold">{t.hero.leadDescription.ai}</strong>,{" "}
+                {t.hero.leadDescription.part2 ? "and " : ""}
+                <strong className="text-[#202124] dark:text-white font-semibold">{t.hero.leadDescription.law}</strong>{" "}
+                {t.hero.leadDescription.part2}
               </p>
 
               {/* Dual CTAs */}
@@ -299,14 +303,14 @@ export function HeroEntrance() {
                   href="/contact"
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 text-base font-semibold text-white bg-[#4285F4] hover:bg-[#1A73E8] rounded-full shadow-md hover:shadow-lg transition-all duration-200 transform hover:-translate-y-0.5"
                 >
-                  <span>Join the Community</span>
+                  <span>{t.hero.joinCta}</span>
                   <ArrowRight className="w-4 h-4" />
                 </Link>
                 <Link
                   href="/events"
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 text-base font-semibold text-[#202124] dark:text-[#F1F3F4] bg-neutral-100 hover:bg-neutral-200 dark:bg-neutral-800 dark:hover:bg-neutral-700 rounded-full border border-[#E8EAED] dark:border-[#2D2F34] transition-colors"
                 >
-                  <span>Explore Upcoming Events</span>
+                  <span>{t.hero.exploreEventsCta}</span>
                   <ArrowUpRight className="w-4 h-4 text-neutral-500" />
                 </Link>
               </div>
@@ -346,7 +350,7 @@ export function HeroEntrance() {
                   </div>
                 </div>
                 <p>
-                  <strong className="text-[#202124] dark:text-[#F1F3F4] font-semibold">250+ Passau students</strong> building together
+                  <strong className="text-[#202124] dark:text-[#F1F3F4] font-semibold">{t.hero.memberCount}</strong> {t.hero.memberCountSub}
                 </p>
               </div>
             </div>
@@ -368,10 +372,10 @@ export function HeroEntrance() {
                   <div className="absolute bottom-4 left-4 right-4 text-white">
                     <span className="inline-flex items-center gap-1 text-[11px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#4285F4] text-white mb-1 shadow-xs">
                       <Sparkles className="w-3 h-3" />
-                      Civic Hackathon
+                      {t.hero.bentoHackathonTag}
                     </span>
-                    <p className="text-sm font-semibold">Code for Passau 2026</p>
-                    <p className="text-xs text-white/80">48-hour student build sprints</p>
+                    <p className="text-sm font-semibold">{t.hero.bentoHackathonTitle}</p>
+                    <p className="text-xs text-white/80">{t.hero.bentoHackathonSub}</p>
                   </div>
                 </div>
 
@@ -413,10 +417,10 @@ export function HeroEntrance() {
                   <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
                   <div className="absolute inset-y-0 left-5 flex flex-col justify-center text-white">
                     <span className="text-[11px] font-bold uppercase tracking-wider text-[#34A853]">
-                      Peer-to-Peer Mentorship
+                      {t.hero.bentoMentorshipTag}
                     </span>
-                    <p className="text-sm font-semibold">Master&apos;s Mentors &bull; Bachelor&apos;s Builders</p>
-                    <p className="text-xs text-white/80">Pairing talent across all semesters</p>
+                    <p className="text-sm font-semibold">{t.hero.bentoMentorshipTitle}</p>
+                    <p className="text-xs text-white/80">{t.hero.bentoMentorshipSub}</p>
                   </div>
                 </div>
               </div>

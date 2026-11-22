@@ -1,8 +1,12 @@
+"use client";
+
 import Link from "next/link";
 import { initiativesData } from "@/data/initiatives";
 import { LayoutDashboard, BookOpen, ShieldCheck, GitBranch, ArrowUpRight } from "lucide-react";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 export function InitiativesSpotlight() {
+  const { t } = useLanguage();
   const getIcon = (icon: string, color: string) => {
     const props = { className: "w-5 h-5", style: { color } };
     switch (icon) {
@@ -23,13 +27,13 @@ export function InitiativesSpotlight() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-14">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 dark:bg-amber-950/50 text-[#FBBC04] dark:text-amber-300 text-xs font-semibold uppercase tracking-wider mb-3">
-            What We Build
+            {t.initiatives.sectionTag}
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-[#202124] dark:text-[#F1F3F4] tracking-tight font-display">
-            Current Chapter Initiatives
+            {t.initiatives.sectionTitle}
           </h2>
           <p className="mt-3 text-sm sm:text-base text-[#5F6368] dark:text-[#9AA0A6] leading-relaxed">
-            We don&apos;t just host presentations; our student squads build functional tools and publications that enrich the University of Passau ecosystem.
+            {t.initiatives.sectionSubtitle}
           </p>
         </div>
 

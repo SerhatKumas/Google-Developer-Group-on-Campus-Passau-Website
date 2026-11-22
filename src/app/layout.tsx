@@ -4,6 +4,7 @@ import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { ThemeProvider } from "@/components/layout/ThemeProvider";
+import { LanguageProvider } from "@/i18n/LanguageContext";
 import { siteConfig } from "@/config/site";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
@@ -97,11 +98,13 @@ export default function RootLayout({
         </a>
 
         <ThemeProvider>
-          <Navbar />
-          <main id="main-content" className="flex-1">
-            {children}
-          </main>
-          <Footer />
+          <LanguageProvider>
+            <Navbar />
+            <main id="main-content" className="flex-1">
+              {children}
+            </main>
+            <Footer />
+          </LanguageProvider>
         </ThemeProvider>
       </body>
     </html>

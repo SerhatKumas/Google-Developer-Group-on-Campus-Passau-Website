@@ -1,10 +1,14 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import { siteConfig } from "@/config/site";
 import { GoogleIcon, LinkedInIcon, InstagramIcon, WhatsAppIcon, GitHubIcon } from "@/components/ui/BrandIcons";
 import { MapPin, Mail } from "lucide-react";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 export function Footer() {
+  const { t } = useLanguage();
   return (
     <footer className="w-full bg-[#F8F9FA] dark:bg-[#1E1F23] border-t border-[#E8EAED] dark:border-[#2D2F34] text-[#5F6368] dark:text-[#9AA0A6] transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-18">
@@ -32,8 +36,7 @@ export function Footer() {
             </div>
 
             <p className="text-sm leading-relaxed text-[#5F6368] dark:text-[#9AA0A6] max-w-sm">
-              The premier technical and interdisciplinary student network at the University of Passau. 
-              Bridging engineering, AI, and technical law to transform ideas into working prototypes.
+              {t.footer.description}
             </p>
 
             {/* Social Icons Strip */}
@@ -89,32 +92,32 @@ export function Footer() {
           {/* Quick Links */}
           <div className="space-y-3">
             <h4 className="text-sm font-semibold tracking-wider uppercase text-[#202124] dark:text-[#F1F3F4]">
-              Explore
+              {t.footer.navigationHeader}
             </h4>
             <ul className="space-y-2 text-sm">
               <li>
                 <Link href="/team" className="hover:text-[#4285F4] dark:hover:text-blue-400 transition-colors">
-                  Leadership & Teams
+                  {t.nav.team}
                 </Link>
               </li>
               <li>
                 <Link href="/events" className="hover:text-[#4285F4] dark:hover:text-blue-400 transition-colors">
-                  Upcoming & Past Events
+                  {t.nav.events}
                 </Link>
               </li>
               <li>
                 <Link href="/partners" className="hover:text-[#4285F4] dark:hover:text-blue-400 transition-colors">
-                  Partners & Companies
+                  {t.nav.partners}
                 </Link>
               </li>
               <li>
                 <Link href="/gallery" className="hover:text-[#4285F4] dark:hover:text-blue-400 transition-colors">
-                  Community Gallery
+                  {t.nav.gallery}
                 </Link>
               </li>
               <li>
                 <Link href="/contact" className="hover:text-[#4285F4] dark:hover:text-blue-400 transition-colors">
-                  Contact & Hub
+                  {t.nav.contact}
                 </Link>
               </li>
             </ul>
@@ -123,7 +126,7 @@ export function Footer() {
           {/* Core Initiatives */}
           <div className="space-y-3">
             <h4 className="text-sm font-semibold tracking-wider uppercase text-[#202124] dark:text-[#F1F3F4]">
-              Initiatives
+              {t.footer.initiativesHeader}
             </h4>
             <ul className="space-y-2 text-sm">
               <li>
@@ -148,7 +151,7 @@ export function Footer() {
           {/* Campus Location */}
           <div className="space-y-3">
             <h4 className="text-sm font-semibold tracking-wider uppercase text-[#202124] dark:text-[#F1F3F4]">
-              Campus Hub
+              {t.footer.hubHeader}
             </h4>
             <div className="space-y-2 text-sm">
               <div className="flex items-start gap-2">
@@ -186,13 +189,13 @@ export function Footer() {
               href="/impressum"
               className="text-[#5F6368] dark:text-[#9AA0A6] hover:text-[#202124] dark:hover:text-[#F1F3F4] underline-offset-4 hover:underline"
             >
-              Impressum (Legal Notice)
+              {t.footer.impressum}
             </Link>
             <Link
               href="/privacy"
               className="text-[#5F6368] dark:text-[#9AA0A6] hover:text-[#202124] dark:hover:text-[#F1F3F4] underline-offset-4 hover:underline"
             >
-              Privacy Policy (Datenschutz)
+              {t.footer.privacy}
             </Link>
           </div>
         </div>
