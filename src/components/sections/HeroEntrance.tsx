@@ -15,25 +15,33 @@ import {
 export function HeroEntrance() {
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // Track scroll progress within this 200vh container
+  // Track scroll progress within this 220vh container
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"],
   });
 
+  // ========================================================
   // 1. Entrance Stage Transforms (Phase 1: 0.0 to 0.45)
-  // Left arrow (<) slides away to the left
-  const leftArrowX = useTransform(scrollYProgress, [0, 0.42], [0, -420]);
-  const leftArrowRotate = useTransform(scrollYProgress, [0, 0.42], [0, -18]);
-  // Right arrow (>) slides away to the right
-  const rightArrowX = useTransform(scrollYProgress, [0, 0.42], [0, 420]);
-  const rightArrowRotate = useTransform(scrollYProgress, [0, 0.42], [0, 18]);
+  // Left arrow (<) in our logo flies to UPPER-LEFT
+  // ========================================================
+  const leftArrowX = useTransform(scrollYProgress, [0, 0.42], [0, -520]);
+  const leftArrowY = useTransform(scrollYProgress, [0, 0.42], [0, -380]);
+  const leftArrowRotate = useTransform(scrollYProgress, [0, 0.42], [0, -28]);
 
-  // Arrows and logo badge fade out
-  const arrowsOpacity = useTransform(scrollYProgress, [0.15, 0.4], [1, 0]);
-  const arrowsScale = useTransform(scrollYProgress, [0, 0.4], [1, 0.9]);
+  // Right arrow (>) in our logo flies to UPPER-RIGHT
+  const rightArrowX = useTransform(scrollYProgress, [0, 0.42], [0, 520]);
+  const rightArrowY = useTransform(scrollYProgress, [0, 0.42], [0, -380]);
+  const rightArrowRotate = useTransform(scrollYProgress, [0, 0.42], [0, 28]);
 
-  // Entrance big text translates up and fades out
+  // Arrows fade and scale as they fly away
+  const arrowsOpacity = useTransform(scrollYProgress, [0.15, 0.42], [1, 0]);
+  const arrowsScale = useTransform(scrollYProgress, [0, 0.42], [1, 0.85]);
+
+  // Logo base text and entrance title fade out
+  const logoBaseOpacity = useTransform(scrollYProgress, [0.12, 0.38], [1, 0]);
+  const logoBaseY = useTransform(scrollYProgress, [0, 0.38], [0, 40]);
+
   const entranceTextY = useTransform(scrollYProgress, [0, 0.4], [0, -70]);
   const entranceTextOpacity = useTransform(scrollYProgress, [0.12, 0.38], [1, 0]);
   const entrancePointerEvents = useTransform(scrollYProgress, (v) =>
@@ -43,7 +51,9 @@ export function HeroEntrance() {
   // Scroll indicator at the bottom fades immediately
   const scrollIndicatorOpacity = useTransform(scrollYProgress, [0, 0.12], [1, 0]);
 
+  // ========================================================
   // 2. Main Hero Stage Transforms (Phase 2: 0.35 to 0.65)
+  // ========================================================
   const mainHeroOpacity = useTransform(scrollYProgress, [0.35, 0.58], [0, 1]);
   const mainHeroScale = useTransform(scrollYProgress, [0.35, 0.58], [0.94, 1]);
   const mainHeroY = useTransform(scrollYProgress, [0.35, 0.58], [40, 0]);
@@ -71,7 +81,7 @@ export function HeroEntrance() {
         <div className="absolute bottom-1/3 right-1/3 w-96 h-96 bg-[#34A853]/10 rounded-full blur-3xl pointer-events-none" />
 
         {/* ======================================================== */}
-        {/* STAGE 1: CINEMATIC ENTRANCE (Logo + Big Writing)        */}
+        {/* STAGE 1: CINEMATIC ENTRANCE (Big Logo + Big Writing)     */}
         {/* ======================================================== */}
         <motion.div
           style={{
@@ -80,86 +90,74 @@ export function HeroEntrance() {
           className="absolute inset-0 flex flex-col items-center justify-center px-4 sm:px-8 z-20"
         >
           <div className="max-w-6xl w-full mx-auto flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-14">
-            {/* Left: The GDG Chapter Logo with Animated Parting Arrows */}
-            <motion.div
-              style={{
-                scale: arrowsScale,
-                opacity: arrowsOpacity,
-              }}
-              className="relative flex items-center justify-center"
-            >
-              {/* Outer Ambient Glow */}
-              <div className="absolute inset-0 rounded-full bg-linear-to-r from-blue-500/20 via-red-500/20 to-green-500/20 blur-2xl" />
+            {/* Left: OUR BIG LOGO with parting arrows flying to upper-left & upper-right */}
+            <div className="relative w-full max-w-[340px] sm:max-w-[440px] lg:max-w-[500px] xl:max-w-[540px] shrink-0">
+              {/* Outer Ambient Glow behind logo */}
+              <div className="absolute -inset-4 rounded-3xl bg-linear-to-r from-blue-500/15 via-red-500/15 to-green-500/15 blur-2xl pointer-events-none" />
 
-              {/* Chevrons container */}
-              <div className="relative z-10 flex items-center gap-3 sm:gap-4 p-4 rounded-3xl bg-neutral-50/70 dark:bg-[#1A1C20]/70 backdrop-blur-xs border border-[#E8EAED]/80 dark:border-[#2D2F34]/80 shadow-lg">
-                {/* Left Arrow/Chevron (<) - Sliders to the left on scroll */}
+              {/* The Chapter Logo Container maintaining exact 1360:850 ratio */}
+              <div className="relative w-full aspect-[1360/850]">
+                {/* 1. Base Layer: Chapter Text Lockup (stays grounded & smoothly fades) */}
+                <motion.div
+                  style={{
+                    opacity: logoBaseOpacity,
+                    y: logoBaseY,
+                  }}
+                  className="absolute inset-0 w-full h-full pointer-events-none"
+                >
+                  <Image
+                    src="/images/logo/gdg-logo-base.png"
+                    alt="Google Developer Groups on Campus Passau"
+                    fill
+                    sizes="(max-width: 768px) 340px, (max-width: 1024px) 440px, 540px"
+                    priority
+                    className="object-contain"
+                  />
+                </motion.div>
+
+                {/* 2. Left Arrow in our logo (<) -> Flies to UPPER-LEFT */}
                 <motion.div
                   style={{
                     x: leftArrowX,
+                    y: leftArrowY,
                     rotate: leftArrowRotate,
+                    opacity: arrowsOpacity,
+                    scale: arrowsScale,
                   }}
-                  className="w-16 h-20 sm:w-24 sm:h-30 shrink-0"
+                  className="absolute inset-0 w-full h-full pointer-events-none will-change-transform"
                 >
-                  <svg
-                    viewBox="0 0 120 128"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="w-full h-full drop-shadow-md"
-                  >
-                    {/* Official Google Developer Top-Red Arm of < */}
-                    <path
-                      d="M71.7518 56.5629C63.1308 61.4609 54.5048 66.3499 45.8928 71.2629C40.8548 74.1369 35.8728 77.1089 30.8088 79.9349C20.6058 85.6299 8.48381 82.2919 2.69881 72.2609C-2.82219 62.6889 0.35081 50.2789 10.1768 44.5429C34.2018 30.5199 58.2888 16.5989 82.4628 2.83386C89.8768 -1.38814 97.5688 -0.857141 104.425 4.18986C111.661 9.51686 114.03 17.0129 112.405 25.8009C111.397 27.9269 110.795 30.4199 109.286 32.0949C106.831 34.8199 104.041 37.4289 100.935 39.3449C91.3228 45.2719 81.4958 50.8499 71.7518 56.5629Z"
-                      fill="#EA4335"
-                    />
-                    {/* Official Google Developer Bottom-Blue Arm of < */}
-                    <path
-                      d="M61.867 62.057C70.42 67.073 78.967 72.1 87.528 77.102C92.535 80.028 97.6 82.857 102.579 85.828C112.613 91.818 115.784 103.984 109.989 114.009C104.459 123.577 92.126 127.035 82.245 121.392C58.088 107.597 33.989 93.699 9.98101 79.646C2.61801 75.336 -0.76799 68.409 0.17501 59.948C1.17001 51.017 6.47701 45.218 14.9 42.231C17.245 42.042 19.705 41.316 21.911 41.786C25.498 42.55 29.153 43.661 32.365 45.393C42.304 50.753 52.048 56.475 61.867 62.057Z"
-                      fill="#4285F4"
-                    />
-                  </svg>
+                  <Image
+                    src="/images/logo/gdg-arrow-left.png"
+                    alt="GDG Passau Logo Left Arrow"
+                    fill
+                    sizes="(max-width: 768px) 340px, (max-width: 1024px) 440px, 540px"
+                    priority
+                    className="object-contain drop-shadow-md"
+                  />
                 </motion.div>
 
-                {/* Central Chapter Seal with Official Chapter Logo */}
-                <div className="w-14 h-14 sm:w-20 sm:h-20 rounded-2xl bg-white dark:bg-[#121316] p-2 border border-[#E8EAED] dark:border-[#2D2F34] shadow-xs flex items-center justify-center shrink-0">
-                  <Image
-                    src="/images/logo/gdg-passau-logo.png"
-                    alt="GDG on Campus Passau Badge"
-                    width={80}
-                    height={80}
-                    priority
-                    className="object-contain w-full h-full"
-                  />
-                </div>
-
-                {/* Right Arrow/Chevron (>) - Slides to the right on scroll */}
+                {/* 3. Right Arrow in our logo (>) -> Flies to UPPER-RIGHT */}
                 <motion.div
                   style={{
                     x: rightArrowX,
+                    y: rightArrowY,
                     rotate: rightArrowRotate,
+                    opacity: arrowsOpacity,
+                    scale: arrowsScale,
                   }}
-                  className="w-16 h-20 sm:w-24 sm:h-30 shrink-0"
+                  className="absolute inset-0 w-full h-full pointer-events-none will-change-transform"
                 >
-                  <svg
-                    viewBox="136 0 120 128"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="w-full h-full drop-shadow-md"
-                  >
-                    {/* Official Google Developer Top-Yellow Arm of > */}
-                    <path
-                      d="M184.315 67.7045C197.784 59.9685 211.217 52.1695 224.732 44.5135C237.56 37.2455 252.653 43.9485 255.561 58.0925C257.244 66.2745 253.591 75.1135 246.204 79.4185C221.986 93.5315 197.733 107.588 173.359 121.43C165.815 125.714 158.044 124.926 151.169 119.676C144.185 114.346 141.984 106.994 143.622 98.4375C145.492 91.9235 149.772 87.5685 155.609 84.3105C165.26 78.9245 174.754 73.2545 184.315 67.7045Z"
-                      fill="#FBBC04"
-                    />
-                    {/* Official Google Developer Bottom-Green Arm of > */}
-                    <path
-                      d="M194.203 62.079C180.768 54.283 167.299 46.548 153.911 38.673C141.202 31.197 139.462 14.775 150.256 5.18296C156.5 -0.364041 165.981 -1.62104 173.403 2.62396C197.735 16.541 222.035 30.517 246.209 44.704C253.691 49.095 256.893 56.22 255.786 64.799C254.661 73.511 249.395 79.093 241.166 81.954C234.589 83.592 228.678 82.062 222.938 78.636C213.447 72.971 203.79 67.583 194.203 62.079Z"
-                      fill="#34A853"
-                    />
-                  </svg>
+                  <Image
+                    src="/images/logo/gdg-arrow-right.png"
+                    alt="GDG Passau Logo Right Arrow"
+                    fill
+                    sizes="(max-width: 768px) 340px, (max-width: 1024px) 440px, 540px"
+                    priority
+                    className="object-contain drop-shadow-md"
+                  />
                 </motion.div>
               </div>
-            </motion.div>
+            </div>
 
             {/* Right: Big Writing (Google Developer Group on Campus Passau) */}
             <motion.div
@@ -208,7 +206,7 @@ export function HeroEntrance() {
         </motion.div>
 
         {/* ======================================================== */}
-        {/* STAGE 2: MAIN HERO PAGE (Reveals as arrows part away)    */}
+        {/* STAGE 2: MAIN HERO PAGE (Reveals as arrows fly away)     */}
         {/* ======================================================== */}
         <motion.div
           style={{
