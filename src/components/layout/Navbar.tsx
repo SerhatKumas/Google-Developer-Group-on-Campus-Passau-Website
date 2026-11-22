@@ -74,15 +74,15 @@ export function Navbar() {
                   key={link.href}
                   href={link.href}
                   className={cn(
-                    "px-3.5 py-2 text-sm font-medium rounded-full transition-colors relative",
+                    "px-4 pt-2 pb-3 text-sm font-medium rounded-full transition-all relative flex flex-col items-center justify-center",
                     isActive
                       ? "text-[#4285F4] dark:text-blue-400 bg-blue-50/70 dark:bg-blue-950/40 font-semibold"
                       : "text-[#5F6368] dark:text-[#9AA0A6] hover:text-[#202124] dark:hover:text-[#F1F3F4] hover:bg-neutral-100 dark:hover:bg-neutral-800/60"
                   )}
                 >
-                  {link.name}
+                  <span className={cn(isActive && "-translate-y-0.5")}>{link.name}</span>
                   {isActive && (
-                    <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[#4285F4] dark:bg-blue-400" />
+                    <span className="absolute bottom-1.5 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[#4285F4] dark:bg-blue-400 shadow-xs" />
                   )}
                 </Link>
               );
