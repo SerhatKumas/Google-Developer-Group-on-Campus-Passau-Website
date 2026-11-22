@@ -22,26 +22,42 @@ export function HeroEntrance() {
   });
 
   // ========================================================
-  // 1. Entrance Stage Transforms (Phase 1: 0.0 to 0.45)
-  // Left arrow (<) in our logo flies to UPPER-LEFT
+  // 1. Entrance Stage Transforms: 4 INDIVIDUAL ARROWS
+  // Everyone goes to a distinct direction (Left, Up, Down, Right)
   // ========================================================
-  const leftArrowX = useTransform(scrollYProgress, [0, 0.42], [0, -520]);
-  const leftArrowY = useTransform(scrollYProgress, [0, 0.42], [0, -380]);
-  const leftArrowRotate = useTransform(scrollYProgress, [0, 0.42], [0, -28]);
 
-  // Right arrow (>) in our logo flies to UPPER-RIGHT
-  const rightArrowX = useTransform(scrollYProgress, [0, 0.42], [0, 520]);
-  const rightArrowY = useTransform(scrollYProgress, [0, 0.42], [0, -380]);
-  const rightArrowRotate = useTransform(scrollYProgress, [0, 0.42], [0, 28]);
+  // 1. RED ARROW (Top-Left of <) -> Flies LEFT & UPPER-LEFT
+  const redArrowX = useTransform(scrollYProgress, [0, 0.42], [0, -560]);
+  const redArrowY = useTransform(scrollYProgress, [0, 0.42], [0, -280]);
+  const redArrowRotate = useTransform(scrollYProgress, [0, 0.42], [0, -32]);
+  const redArrowScale = useTransform(scrollYProgress, [0, 0.2, 0.42], [1, 1.08, 0.8]);
 
-  // Arrows fade and scale as they fly away
+  // 2. YELLOW ARROW (Top-Right of >) -> Flies UP & UPPER-RIGHT
+  const yellowArrowX = useTransform(scrollYProgress, [0, 0.42], [0, 220]);
+  const yellowArrowY = useTransform(scrollYProgress, [0, 0.42], [0, -540]);
+  const yellowArrowRotate = useTransform(scrollYProgress, [0, 0.42], [0, 32]);
+  const yellowArrowScale = useTransform(scrollYProgress, [0, 0.2, 0.42], [1, 1.1, 0.8]);
+
+  // 3. BLUE ARROW (Bottom-Left of <) -> Flies DOWN & LOWER-LEFT
+  const blueArrowX = useTransform(scrollYProgress, [0, 0.42], [0, -340]);
+  const blueArrowY = useTransform(scrollYProgress, [0, 0.42], [0, 480]);
+  const blueArrowRotate = useTransform(scrollYProgress, [0, 0.42], [0, 28]);
+  const blueArrowScale = useTransform(scrollYProgress, [0, 0.2, 0.42], [1, 1.06, 0.8]);
+
+  // 4. GREEN ARROW (Bottom-Right of >) -> Flies RIGHT & LOWER-RIGHT
+  const greenArrowX = useTransform(scrollYProgress, [0, 0.42], [0, 580]);
+  const greenArrowY = useTransform(scrollYProgress, [0, 0.42], [0, 260]);
+  const greenArrowRotate = useTransform(scrollYProgress, [0, 0.42], [0, -26]);
+  const greenArrowScale = useTransform(scrollYProgress, [0, 0.2, 0.42], [1, 1.05, 0.8]);
+
+  // Unified fading for the dispersing arrows
   const arrowsOpacity = useTransform(scrollYProgress, [0.15, 0.42], [1, 0]);
-  const arrowsScale = useTransform(scrollYProgress, [0, 0.42], [1, 0.85]);
 
-  // Logo base text and entrance title fade out
-  const logoBaseOpacity = useTransform(scrollYProgress, [0.12, 0.38], [1, 0]);
-  const logoBaseY = useTransform(scrollYProgress, [0, 0.38], [0, 40]);
+  // Base chapter text lockup fades and settles down
+  const logoBaseOpacity = useTransform(scrollYProgress, [0.1, 0.36], [1, 0]);
+  const logoBaseY = useTransform(scrollYProgress, [0, 0.36], [0, 40]);
 
+  // Entrance typography lifts up and fades out
   const entranceTextY = useTransform(scrollYProgress, [0, 0.4], [0, -70]);
   const entranceTextOpacity = useTransform(scrollYProgress, [0.12, 0.38], [1, 0]);
   const entrancePointerEvents = useTransform(scrollYProgress, (v) =>
@@ -81,7 +97,7 @@ export function HeroEntrance() {
         <div className="absolute bottom-1/3 right-1/3 w-96 h-96 bg-[#34A853]/10 rounded-full blur-3xl pointer-events-none" />
 
         {/* ======================================================== */}
-        {/* STAGE 1: CINEMATIC ENTRANCE (Big Logo + Big Writing)     */}
+        {/* STAGE 1: CINEMATIC ENTRANCE (4 Animated Arrows + Title)  */}
         {/* ======================================================== */}
         <motion.div
           style={{
@@ -90,7 +106,7 @@ export function HeroEntrance() {
           className="absolute inset-0 flex flex-col items-center justify-center px-4 sm:px-8 z-20"
         >
           <div className="max-w-6xl w-full mx-auto flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-14">
-            {/* Left: OUR BIG LOGO with parting arrows flying to upper-left & upper-right */}
+            {/* Left: OUR BIG LOGO with 4 individual dispersing arrows */}
             <div className="relative w-full max-w-[340px] sm:max-w-[440px] lg:max-w-[500px] xl:max-w-[540px] shrink-0">
               {/* Outer Ambient Glow behind logo */}
               <div className="absolute -inset-4 rounded-3xl bg-linear-to-r from-blue-500/15 via-red-500/15 to-green-500/15 blur-2xl pointer-events-none" />
@@ -103,7 +119,7 @@ export function HeroEntrance() {
                     opacity: logoBaseOpacity,
                     y: logoBaseY,
                   }}
-                  className="absolute inset-0 w-full h-full pointer-events-none"
+                  className="absolute inset-0 w-full h-full pointer-events-none z-0"
                 >
                   <Image
                     src="/images/logo/gdg-logo-base.png"
@@ -115,45 +131,87 @@ export function HeroEntrance() {
                   />
                 </motion.div>
 
-                {/* 2. Left Arrow in our logo (<) -> Flies to UPPER-LEFT */}
+                {/* 2. GREEN ARROW (Bottom-Right) -> Flies RIGHT & DOWN */}
                 <motion.div
                   style={{
-                    x: leftArrowX,
-                    y: leftArrowY,
-                    rotate: leftArrowRotate,
+                    x: greenArrowX,
+                    y: greenArrowY,
+                    rotate: greenArrowRotate,
+                    scale: greenArrowScale,
                     opacity: arrowsOpacity,
-                    scale: arrowsScale,
                   }}
-                  className="absolute inset-0 w-full h-full pointer-events-none will-change-transform"
+                  className="absolute inset-0 w-full h-full pointer-events-none z-10 will-change-transform"
                 >
                   <Image
-                    src="/images/logo/gdg-arrow-left.png"
-                    alt="GDG Passau Logo Left Arrow"
+                    src="/images/logo/gdg-arrow-green.png"
+                    alt="GDG Green Arrow"
                     fill
                     sizes="(max-width: 768px) 340px, (max-width: 1024px) 440px, 540px"
                     priority
-                    className="object-contain drop-shadow-md"
+                    className="object-contain drop-shadow-[0_10px_25px_rgba(52,168,83,0.35)]"
                   />
                 </motion.div>
 
-                {/* 3. Right Arrow in our logo (>) -> Flies to UPPER-RIGHT */}
+                {/* 3. BLUE ARROW (Bottom-Left) -> Flies LEFT & DOWN */}
                 <motion.div
                   style={{
-                    x: rightArrowX,
-                    y: rightArrowY,
-                    rotate: rightArrowRotate,
+                    x: blueArrowX,
+                    y: blueArrowY,
+                    rotate: blueArrowRotate,
+                    scale: blueArrowScale,
                     opacity: arrowsOpacity,
-                    scale: arrowsScale,
                   }}
-                  className="absolute inset-0 w-full h-full pointer-events-none will-change-transform"
+                  className="absolute inset-0 w-full h-full pointer-events-none z-20 will-change-transform"
                 >
                   <Image
-                    src="/images/logo/gdg-arrow-right.png"
-                    alt="GDG Passau Logo Right Arrow"
+                    src="/images/logo/gdg-arrow-blue.png"
+                    alt="GDG Blue Arrow"
                     fill
                     sizes="(max-width: 768px) 340px, (max-width: 1024px) 440px, 540px"
                     priority
-                    className="object-contain drop-shadow-md"
+                    className="object-contain drop-shadow-[0_10px_25px_rgba(66,133,244,0.35)]"
+                  />
+                </motion.div>
+
+                {/* 4. YELLOW ARROW (Top-Right) -> Flies UP & RIGHT */}
+                <motion.div
+                  style={{
+                    x: yellowArrowX,
+                    y: yellowArrowY,
+                    rotate: yellowArrowRotate,
+                    scale: yellowArrowScale,
+                    opacity: arrowsOpacity,
+                  }}
+                  className="absolute inset-0 w-full h-full pointer-events-none z-25 will-change-transform"
+                >
+                  <Image
+                    src="/images/logo/gdg-arrow-yellow.png"
+                    alt="GDG Yellow Arrow"
+                    fill
+                    sizes="(max-width: 768px) 340px, (max-width: 1024px) 440px, 540px"
+                    priority
+                    className="object-contain drop-shadow-[0_10px_25px_rgba(251,188,4,0.35)]"
+                  />
+                </motion.div>
+
+                {/* 5. RED ARROW (Top-Left) -> Elevates and Flies LEFT & UP */}
+                <motion.div
+                  style={{
+                    x: redArrowX,
+                    y: redArrowY,
+                    rotate: redArrowRotate,
+                    scale: redArrowScale,
+                    opacity: arrowsOpacity,
+                  }}
+                  className="absolute inset-0 w-full h-full pointer-events-none z-30 will-change-transform"
+                >
+                  <Image
+                    src="/images/logo/gdg-arrow-red.png"
+                    alt="GDG Red Arrow"
+                    fill
+                    sizes="(max-width: 768px) 340px, (max-width: 1024px) 440px, 540px"
+                    priority
+                    className="object-contain drop-shadow-[0_10px_25px_rgba(234,67,53,0.35)]"
                   />
                 </motion.div>
               </div>
