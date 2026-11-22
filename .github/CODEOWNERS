@@ -1,0 +1,10 @@
+# ==============================================================================
+# Google Developer Group on Campus Passau — Repository CODEOWNERS
+# ==============================================================================
+# Rules:
+# - All pull requests targeting 'main' require review and approval from at least
+#   one of the official code owners before merging.
+# - Only Serhat Kumaş (@SerhatKumas) and Utkarsh Dalmia (@Udalmia) have merge authority.
+# ==============================================================================
+
+* @SerhatKumas @Udalmia
