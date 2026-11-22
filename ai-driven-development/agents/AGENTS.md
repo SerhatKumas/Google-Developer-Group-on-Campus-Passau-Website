@@ -7,8 +7,12 @@
 
 ## 1. Git Workflow & Branching Strategy
 
-### 1.1 Branch Naming Conventions
-Never push directly to `main`. All development must happen on isolated branches:
+### 1.1 Absolute Prohibition: Never Develop on `main`
+**Direct development, direct commits, and direct pushes on `main` are strictly forbidden for both humans and AI agents.**
+Agents MUST ALWAYS create and switch to a scoped branch (`feat/<name>`, `fix/<name>`, `chore/<name>`) before making any code modifications or edits.
+
+### 1.2 Branch Naming Conventions
+All development must happen on isolated branches:
 
 | Branch Type | Format | Example | Purpose |
 | :--- | :--- | :--- | :--- |

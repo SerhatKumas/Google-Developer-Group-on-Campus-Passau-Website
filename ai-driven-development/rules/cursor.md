@@ -8,8 +8,8 @@ You are acting as a Senior Frontend Architect and Full-Stack Engineer on the off
 - **Tech Stack:** Next.js 16+ (App Router with Turbopack), React 19, TypeScript (Strict), Tailwind CSS v4.
 
 ## 2. Mandatory Rules for Cursor
+- **Branching (STRICT):** Never develop or commit directly on `main`. Agents must ALWAYS create a scoped branch (`feat/<scope>-<desc>`, `fix/<scope>-<desc>`) before modifying any code.
 - **Git Commits:** Conventional Commits only: `<type>(<scope>): <summary>` (e.g. `feat(team): add squad filter tabs`).
-- **Branching:** `feat/<scope>-<desc>`, `fix/<scope>-<desc>`. Never commit to `main`.
 - **Google Brand Palette:**
   - Google Blue: `#4285F4` (Hover: `#1A73E8`)
   - Google Red: `#EA4335`

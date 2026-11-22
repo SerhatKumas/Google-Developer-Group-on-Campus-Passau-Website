@@ -3,6 +3,7 @@
 # Rule specifications: ai-driven-development/rules/
 
 Read and follow:
+- NEVER develop or commit on main branch. Always create a branch (feat/*, fix/*).
 - ai-driven-development/agents/CURSORRULES.md
 - ai-driven-development/rules/01-git-and-branching.md
 - ai-driven-development/rules/02-commit-and-push.md

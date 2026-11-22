@@ -16,9 +16,10 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 > - **Rules Index:** [`ai-driven-development/rules/README.md`](./ai-driven-development/rules/README.md)
 
 ## Core Directives for Agents:
-1. **Deterministic Verification:** Always run `npm run lint && npm run build` before finishing any task (must exit code 0).
-2. **React 19 Rule:** Never call `setState` synchronously within a `useEffect` body.
-3. **No Raw Script Tags:** Never render `<script>` tags inside JSX components.
-4. **Google Design Tokens:** Use `--google-blue`, `--google-red`, `--google-yellow`, `--google-green` from `globals.css`.
-5. **Mandatory Team Cards:** Every member card on `/team` must include LinkedIn & Instagram buttons (`rel="noopener noreferrer"`).
-6. **Decoupled Services:** UI components must never query databases directly; all queries flow through `/src/services/`.
+1. **Never Develop on `main` Branch (Strict Isolation):** Direct development and direct commits on `main` are strictly prohibited. Agents must ALWAYS create and switch to a scoped branch (`feat/<name>`, `fix/<name>`, `chore/<name>`) before making any edits or writing code.
+2. **Deterministic Verification:** Always run `npm run lint && npm run build` before finishing any task (must exit code 0).
+3. **React 19 Rule:** Never call `setState` synchronously within a `useEffect` body.
+4. **No Raw Script Tags:** Never render `<script>` tags inside JSX components.
+5. **Google Design Tokens:** Use `--google-blue`, `--google-red`, `--google-yellow`, `--google-green` from `globals.css`.
+6. **Mandatory Team Cards:** Every member card on `/team` must include LinkedIn & Instagram buttons (`rel="noopener noreferrer"`).
+7. **Decoupled Services:** UI components must never query databases directly; all queries flow through `/src/services/`.

@@ -28,5 +28,6 @@ You are an expert full-stack engineer building the Google Developer Group on Cam
 - Every single person displayed on the team page must have: Photo, Name, Role badge, Study Program, and external **LinkedIn** and **Instagram** buttons.
 
 ## Git & Commits
+- **Never Develop on `main` Branch:** Direct commits or editing on `main` are strictly prohibited. Always create a branch (`feat/<name>`, `fix/<name>`).
 - Commit messages: `<type>(<scope>): <imperative summary>` (Conventional Commits v1.0.0).
 - Run `npm run lint && npm run build` to verify every change.

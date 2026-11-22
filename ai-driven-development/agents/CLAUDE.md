@@ -28,6 +28,7 @@ Every member card on `/team` MUST render:
 6. **Instagram button** (`target="_blank"`, `rel="noopener noreferrer"`, accessible `aria-label`)
 
 ## Git & PR Protocol
+- **Never Develop on `main` Branch:** Direct commits or editing on `main` are strictly prohibited. Agents must ALWAYS create a scoped branch (`feat/<name>`, `fix/<name>`) first.
 - **Branch names:** `feat/<scope>-<desc>`, `fix/<scope>-<desc>`, `refactor/<scope>-<desc>`.
 - **Commits:** Conventional Commits: `<type>(<scope>): <summary>` (types: `feat`, `fix`, `refactor`, `style`, `chore`, `docs`).
 - **Verification:** Run `npm run lint && npm run build` and ensure exit code `0` before pushing.
