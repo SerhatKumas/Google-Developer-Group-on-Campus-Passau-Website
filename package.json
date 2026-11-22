@@ -1,7 +1,9 @@
 {
   "name": "gdg-passau-app",
   "version": "0.1.0",
+  "description": "Official web application for Google Developer Group (GDG) on Campus Passau — University of Passau, Germany. Proprietary & exclusive to GDG on Campus Passau.",
   "private": true,
+  "license": "SEE LICENSE IN LICENSE",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

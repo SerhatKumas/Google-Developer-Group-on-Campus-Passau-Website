@@ -1,9 +1,16 @@
-# Google Developer Group (GDG) on Campus Passau Website
+# Google Developer Group (GDG) on Campus Passau — Official Chapter Website
 
 > **Innovate. Bridge. Build.**  
-> The Premier Technical & Interdisciplinary Network at the University of Passau.
+> *The Premier Technical & Interdisciplinary Network at the University of Passau.*
 
-This repository contains the modern, photo-rich multi-page web application for **Google Developer Group on Campus Passau**, a voluntary, student-led technical and interdisciplinary community at the **University of Passau, Germany**.
+## 📌 Repository Description
+
+This repository houses the official, production-grade, photo-rich web application for **Google Developer Group (GDG) on Campus Passau** — a voluntary, student-led technical and interdisciplinary chapter at the **University of Passau, Germany**.
+
+The platform is purpose-built to centralize technical talent across **Computer Science**, **AI Engineering**, and **Technical Law**, serving as an interactive digital hub for chapter events, peer-to-peer mentorship programs, hackathons, and corporate partnerships.
+
+> 🔒 **Proprietary & Exclusive Notice:**  
+> This codebase, design system, and all associated digital assets are **strictly proprietary** to Google Developer Group on Campus Passau. Unauthorized copying, cloning, public deployment, redistribution, or claiming of this website by any third party is **strictly prohibited**. See [`LICENSE`](./LICENSE) for full legal terms.
 
 ---
 
@@ -92,3 +99,15 @@ The data architecture is structured so that transitioning from local mock datase
 - **Environment Switching:** Set `DATA_SOURCE=api` and configure `NEXT_PUBLIC_API_BASE_URL` in `.env` to pull live data from your backend.
 - **Strict Domain Models:** Defined in `/src/types/index.ts` with strict TypeScript types for all entities.
 - **Centralized Links & Config:** Edit `/src/config/site.ts` to update social links, WhatsApp URLs, or contact addresses across the entire website instantly.
+
+---
+
+## ⚖️ License & Intellectual Property
+
+**Copyright &copy; 2026 Google Developer Group (GDG) on Campus Passau. All Rights Reserved.**
+
+This repository and all associated website code, layouts, animations, visual designs, assets, and documentation are **proprietary** to the **Google Developer Group on Campus Passau** voluntary student organization at the **University of Passau, Germany**.
+
+- **Exclusive Permitted Use:** Only active leads, core team members, and authorized organizers of GDG on Campus Passau may modify, execute, and maintain this codebase for the chapter's official web presence.
+- **Prohibitions:** Third parties, other student chapters, commercial entities, or individuals are **strictly prohibited** from copying, cloning, distributing, re-hosting, claiming authorship, or creating derivative works of this application.
+- For complete terms and legal provisions, please review the full [**`LICENSE`**](./LICENSE) file.
