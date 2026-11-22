@@ -8,6 +8,8 @@ export interface Translations {
     partners: string;
     gallery: string;
     contact: string;
+    joinUs: string;
+    memberDashboard: string;
     joinCommunity: string;
     joinWhatsApp: string;
     officialBevy: string;

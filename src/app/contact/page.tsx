@@ -12,9 +12,9 @@ import {
 import { MapPin, Mail, ArrowUpRight, MessageCircle } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Contact & Community Hub",
+  title: "Join Us & Community Hub",
   description:
-    "Join our active WhatsApp group, visit our Google chapter page, or connect with student leads at the University of Passau.",
+    "Join 250+ students in our active WhatsApp group, visit our Google chapter page, or connect with student leads at the University of Passau.",
 };
 
 export default function ContactPage() {
@@ -25,13 +25,13 @@ export default function ContactPage() {
         <div className="text-center max-w-3xl mx-auto space-y-3">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-950/50 text-[#4285F4] dark:text-blue-300 text-xs font-semibold uppercase tracking-wider mb-1">
             <MessageCircle className="w-3.5 h-3.5" />
-            <span>Stay Connected</span>
+            <span>Join Our Community</span>
           </div>
           <h1 className="text-4xl sm:text-5xl font-extrabold text-[#202124] dark:text-[#F1F3F4] tracking-tight font-display">
-            Community Hub & Contact
+            Join Us & Community Hub
           </h1>
           <p className="text-sm sm:text-base text-[#5F6368] dark:text-[#9AA0A6] leading-relaxed">
-            Join 250+ students in our interactive WhatsApp hub, follow our updates on Instagram & LinkedIn, or send a direct inquiry to the leadership team.
+            Ready to build, learn, and grow? Join 250+ students in our interactive WhatsApp hub, follow our updates on Instagram &amp; LinkedIn, or send a direct inquiry to the leadership team.
           </p>
         </div>
 

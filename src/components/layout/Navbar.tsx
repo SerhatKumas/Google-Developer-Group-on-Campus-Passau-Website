@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Menu, X, ArrowUpRight } from "lucide-react";
+import { Menu, X, ArrowUpRight, LayoutDashboard } from "lucide-react";
 import { siteConfig } from "@/config/site";
 import { ThemeToggle } from "./ThemeToggle";
 import { LanguageToggle } from "./LanguageToggle";
@@ -30,7 +30,7 @@ export function Navbar() {
       case "/gallery":
         return t.nav.gallery;
       case "/contact":
-        return t.nav.contact;
+        return t.nav.joinUs;
       default:
         return fallback;
     }
@@ -117,13 +117,11 @@ export function Navbar() {
             <LanguageToggle />
             <ThemeToggle />
             <Link
-              href={siteConfig.socials.whatsapp}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-4 py-2 text-sm font-medium text-white bg-[#4285F4] hover:bg-[#1A73E8] rounded-full shadow-xs hover:shadow-md transition-all duration-150 transform hover:-translate-y-0.5 active:translate-y-0"
+              href="/dashboard"
+              className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-[#4285F4] hover:bg-[#1A73E8] rounded-full shadow-xs hover:shadow-md transition-all duration-150 transform hover:-translate-y-0.5 active:translate-y-0"
             >
-              <span>{t.nav.joinCommunity}</span>
-              <ArrowUpRight className="w-4 h-4" />
+              <LayoutDashboard className="w-4 h-4" />
+              <span>{t.nav.memberDashboard}</span>
             </Link>
           </div>
 
@@ -171,25 +169,35 @@ export function Navbar() {
           </nav>
           <div className="pt-3 border-t border-[#E8EAED] dark:border-[#2D2F34] flex flex-col gap-2">
             <Link
-              href={siteConfig.socials.whatsapp}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/dashboard"
               onClick={() => setIsOpen(false)}
               className="w-full flex items-center justify-center gap-2 py-3 px-4 text-center font-medium text-white bg-[#4285F4] hover:bg-[#1A73E8] rounded-xl shadow-xs"
             >
-              <span>{t.nav.joinWhatsApp}</span>
-              <ArrowUpRight className="w-4 h-4" />
+              <LayoutDashboard className="w-4 h-4" />
+              <span>{t.nav.memberDashboard}</span>
             </Link>
-            <Link
-              href={siteConfig.socials.bevy}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => setIsOpen(false)}
-              className="w-full flex items-center justify-center gap-2 py-2.5 px-4 text-center text-sm font-medium text-neutral-700 dark:text-neutral-200 bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 rounded-xl"
-            >
-              <span>{t.nav.officialBevy}</span>
-              <ArrowUpRight className="w-4 h-4" />
-            </Link>
+            <div className="grid grid-cols-2 gap-2 pt-1">
+              <Link
+                href={siteConfig.socials.whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setIsOpen(false)}
+                className="flex items-center justify-center gap-1.5 py-2 px-3 text-center text-xs font-medium text-neutral-700 dark:text-neutral-200 bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 rounded-lg"
+              >
+                <span>WhatsApp</span>
+                <ArrowUpRight className="w-3 h-3" />
+              </Link>
+              <Link
+                href={siteConfig.socials.bevy}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setIsOpen(false)}
+                className="flex items-center justify-center gap-1.5 py-2 px-3 text-center text-xs font-medium text-neutral-700 dark:text-neutral-200 bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 rounded-lg"
+              >
+                <span>Bevy Chapter</span>
+                <ArrowUpRight className="w-3 h-3" />
+              </Link>
+            </div>
           </div>
         </div>
       )}

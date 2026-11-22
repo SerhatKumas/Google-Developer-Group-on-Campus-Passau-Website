@@ -117,7 +117,7 @@ export function Footer() {
               </li>
               <li>
                 <Link href="/contact" className="hover:text-[#4285F4] dark:hover:text-blue-400 transition-colors">
-                  {t.nav.contact}
+                  {t.nav.joinUs}
                 </Link>
               </li>
             </ul>

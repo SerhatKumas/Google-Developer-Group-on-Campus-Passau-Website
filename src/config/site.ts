@@ -91,6 +91,6 @@ export const siteConfig = {
     { name: "Events", href: "/events" },
     { name: "Partners", href: "/partners" },
     { name: "Gallery", href: "/gallery" },
-    { name: "Contact", href: "/contact" },
+    { name: "Join Us", href: "/contact" },
   ],
 };
