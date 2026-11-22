@@ -8,8 +8,8 @@ Welcome to the **Google Developer Group (GDG) on Campus Passau** engineering rep
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/gdg-on-campus-passau/website.git
-   cd website
+   git clone https://github.com/SerhatKumas/Google-Developer-Group-on-Campus-Passau-Website.git
+   cd Google-Developer-Group-on-Campus-Passau-Website
    ```
 
 2. **Install dependencies:**
@@ -27,11 +27,15 @@ Welcome to the **Google Developer Group (GDG) on Campus Passau** engineering rep
 
 ## 🌿 Git & Branching Rules
 
+> ⛔ **STRICT RULE: NEVER DEVELOP OR COMMIT DIRECTLY ON `main`.**  
+> Direct commits and direct pushes to `main` are strictly prohibited for both human engineers and AI agents. All development must occur on an isolated feature, bugfix, or chore branch.
+
 - **Branch naming convention:**
   - `feat/<scope>-<description>` (e.g., `feat/events-filter-chips`)
   - `fix/<scope>-<description>` (e.g., `fix/theme-toggle-flicker`)
   - `refactor/<scope>-<description>` (e.g., `refactor/services-layer`)
   - `chore/<scope>-<description>` (e.g., `chore/bump-react-types`)
+  - `docs/<scope>-<description>` (e.g., `docs/update-rules`)
 
 - **Workflow:**
   1. Branch off `main`:

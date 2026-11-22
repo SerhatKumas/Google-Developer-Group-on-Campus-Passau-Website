@@ -3,6 +3,11 @@
   "version": "0.1.0",
   "description": "Official web application for Google Developer Group (GDG) on Campus Passau — University of Passau, Germany. Proprietary & exclusive to GDG on Campus Passau.",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SerhatKumas/Google-Developer-Group-on-Campus-Passau-Website.git"
+  },
+  "homepage": "https://gdgpassau.de",
   "license": "SEE LICENSE IN LICENSE",
   "scripts": {
     "dev": "next dev",
