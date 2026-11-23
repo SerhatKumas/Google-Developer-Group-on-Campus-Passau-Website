@@ -27,5 +27,8 @@ jobs:
       - name: Run ESLint
         run: npm run lint
 
+      - name: Run Rules & Architecture Audit
+        run: npm run audit
+
       - name: Run Production Build
         run: npm run build

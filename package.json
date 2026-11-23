@@ -13,7 +13,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "audit": "node scripts/audit-rules.mjs",
+    "audit:full": "node scripts/audit-rules.mjs --full"
   },
   "dependencies": {
     "@hookform/resolvers": "^7.0.8",
