@@ -15,7 +15,13 @@
     "start": "next start",
     "lint": "eslint",
     "audit": "node scripts/audit-rules.mjs",
-    "audit:full": "node scripts/audit-rules.mjs --full"
+    "audit:full": "node scripts/audit-rules.mjs --full",
+    "audit:git": "node scripts/audit-rules.mjs --module=git",
+    "audit:react19": "node scripts/audit-rules.mjs --module=react19",
+    "audit:team": "node scripts/audit-rules.mjs --module=team",
+    "audit:i18n": "node scripts/audit-rules.mjs --module=i18n",
+    "audit:arch": "node scripts/audit-rules.mjs --module=arch",
+    "audit:gov": "node scripts/audit-rules.mjs --module=gov"
   },
   "dependencies": {
     "@hookform/resolvers": "^7.0.8",
