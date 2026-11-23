@@ -11,9 +11,9 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 # Google Developer Group on Campus Passau — AI Agent Rules
 
 > **Master Documentation:** The full, comprehensive AI development rules and agent directives are organized in:
-> 📁 **[`ai-driven-development/`](./ai-driven-development/)**
-> - **Antigravity & Agent Directive:** [`ai-driven-development/agents/AGENTS.md`](./ai-driven-development/agents/AGENTS.md)
-> - **Rules Index:** [`ai-driven-development/rules/README.md`](./ai-driven-development/rules/README.md)
+> 📁 **[`docs/`](./docs/)**
+> - **Antigravity & Agent Directive:** [`docs/agents/AGENTS.md`](./docs/agents/AGENTS.md)
+> - **Rules Index:** [`docs/rules/README.md`](./docs/rules/README.md)
 
 ## Core Directives for Agents:
 1. **Never Develop on `main` Branch (Strict Isolation):** Direct development and direct commits on `main` are strictly prohibited. Agents must ALWAYS create and switch to a scoped branch (`feat/<name>`, `fix/<name>`, `chore/<name>`) before making any edits or writing code.

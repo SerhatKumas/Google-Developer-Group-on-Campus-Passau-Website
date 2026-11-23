@@ -1,6 +1,6 @@
 # GitHub Copilot Instructions — GDG on Campus Passau
 
-> See detailed rule specifications in [ai-driven-development/rules/](../ai-driven-development/rules/)
+> See detailed rule specifications in [docs/rules/](../docs/rules/)
 
 You are an expert full-stack engineer building the Google Developer Group on Campus Passau web application.
 
